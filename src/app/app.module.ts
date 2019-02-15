@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './header/nav/nav.component';
+import { UserAvatarComponent } from './header/user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavComponent } from './header/nav/nav.component';
     ProfileComponent,
     FooterComponent,
     HeaderComponent,
-    NavComponent
+    NavComponent,
+    UserAvatarComponent
   ],
   imports: [
     BrowserModule
