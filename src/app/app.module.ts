@@ -2,10 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { GamesComponent } from './games/games.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GamesComponent,
+    DashboardComponent,
+    ProfileComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule
