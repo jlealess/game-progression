@@ -1,11 +1,25 @@
+/* variables */
+$bg-color: #9dafbd;
+$primary-highlight: #1e2e3b;
+$text-dark: #1e2e3b;
+$text-light: #d6dbdf;
+
+/* layout */
 html {
   font-size: 62.5%;
 }
 
 body {
+  color: $text-dark;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.6em;
   margin: 0;
+}
+
+header, 
+footer {
+  background-color: $primary-highlight;
+  color: $text-light;
 }
 
 .container {
@@ -15,6 +29,7 @@ body {
 }
 
 .main {
+  background-color: $bg-color;
   flex: 1;
 }
 

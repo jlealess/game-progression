@@ -1,4 +1,6 @@
 .nav {
+  background-color: #30495f;
+
   &__list {
     display: flex;
     list-style: none;
@@ -6,11 +8,18 @@
     padding: 0;
 
     &__item {
-      padding-right: 10px;
+      // padding-right: 10px;
     }
   }
 
   &__link {
+    color: inherit;
+    display: inline-block;
+    padding: 10px;
     text-decoration: none;
+
+    &--active {
+      background-color: #405e78;
+    }
   }
 }
