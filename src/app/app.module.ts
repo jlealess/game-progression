@@ -19,6 +19,14 @@ const appRoutes: Routes = [
   {
     path: 'games',
     component: GamesComponent
+  },
+  {
+    path: 'my-profile',
+    component: ProfileComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

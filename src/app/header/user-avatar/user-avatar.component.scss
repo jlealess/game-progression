@@ -1,6 +1,11 @@
 .user {
-  &__avatar {
+  &__avatar__inner {
     align-items: center;
     display: flex;
+  }
+
+  &__profile__link {
+    color: #d6dbdf;
+    text-decoration: none;
   }
 }
