@@ -22,6 +22,15 @@ footer {
   color: $text-light;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+* > * {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -31,6 +40,7 @@ footer {
 .main {
   background-color: $bg-color;
   flex: 1;
+  padding: 1.5em 0;
 }
 
 .wrapper {
