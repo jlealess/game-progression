@@ -4,6 +4,13 @@
     display: flex;
   }
 
+  &__img {
+    border-radius: 50%;
+    display: block;
+    margin-right: 1em;
+    max-width: 75px;
+  }
+
   &__profile__link {
     color: #d6dbdf;
     text-decoration: none;
