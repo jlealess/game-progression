@@ -8,11 +8,16 @@
     border-radius: 50%;
     display: block;
     margin-right: 1em;
-    max-width: 75px;
+    max-width: 60px;
   }
 
   &__profile__link {
     color: #d6dbdf;
     text-decoration: none;
+    transition: all 0.5s ease-in-out; 
+
+    &:hover {
+      color: white;
+    }
   }
 }
