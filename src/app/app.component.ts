@@ -16,4 +16,5 @@ export class AppComponent {
     averageNumberOfHoursPerDay:	2
   };
   title = 'Game Progression';
+
 }

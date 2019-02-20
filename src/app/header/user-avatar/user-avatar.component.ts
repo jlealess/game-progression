@@ -7,15 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserAvatarComponent implements OnInit {
   @Input() user: {
-    id: number,
     firstName: string,
     lastName: string,
     image: string,
-    languageId: number,
-    averageNumberOfHoursPerDay: number
   }
 
   ngOnInit() {
   }
-
 }

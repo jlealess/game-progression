@@ -3,21 +3,21 @@
     <h2 class="profile__heading">
       My Profile
     </h2>
-    <button class="btn">Edit</button>
+    <button class="btn" routerLink="/my-profile/edit">Edit</button>
   </div>
   <div class="profile__body profile__inner">
     <dl class="profile__details">
       <dt class="profile__label">Name</dt>
       <dd class="profile__value">
-        <span>Katie</span> <span>Egervari</span>
+        <span>{{ user.firstName }}</span>&nbsp;<span>{{ user.lastName }}</span>
       </dd>
       <dt class="profile__label">Avatar Image Url</dt>
       <dd class="profile__value">
-        http://
+        {{ user.image }}
       </dd>
       <dt class="profile__label">Average Number of Hours to Game Per Day</dt>
       <dd class="profile__value">
-        2
+        {{ user.averageNumberOfHoursPerDay }}
       </dd>
     </dl>
   </div>

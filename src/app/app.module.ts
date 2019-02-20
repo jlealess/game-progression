@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './header/nav/nav.component';
 import { UserAvatarComponent } from './header/user-avatar/user-avatar.component';
 import { ServerService } from './server.service';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 const appRoutes: Routes = [
   {
@@ -24,7 +25,21 @@ const appRoutes: Routes = [
   },
   {
     path: 'my-profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    data: {
+      user: {
+        id: 1,
+        firstName: "Katie",
+        lastName: "Egervari",
+        image: "profile-image.jpg",
+        languageId: 1,
+        averageNumberOfHoursPerDay: 2
+      }
+    }
+  },
+  {
+    path: 'my-profile/edit',
+    component: EditProfileComponent
   },
   {
     path: '**',
@@ -41,7 +56,8 @@ const appRoutes: Routes = [
     FooterComponent,
     HeaderComponent,
     NavComponent,
-    UserAvatarComponent
+    UserAvatarComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

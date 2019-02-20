@@ -7,6 +7,12 @@
     font-size: 1.4rem;
     padding: 10px 80px;
     text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
 
   &__details {
