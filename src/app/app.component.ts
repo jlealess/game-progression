@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { ConfigService } from './config/config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,17 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  user: {} = {
-    id:	1,
-    firstName:	"Katie",
-    lastName:	"Egervari",
-    image:	"profile-image.jpg",
-    languageId:	1,
-    averageNumberOfHoursPerDay:	2
-  };
+  constructor(private configService: ConfigService) {}
+  
+  user: {};
   title = 'Game Progression';
+
+  ngOnInit() {
+    this.configService.getUser().subscribe(
+      (response) => {
+        this.user = response;
+      }
+    );
+  }
 
 }
