@@ -3,10 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { NavComponent } from './header/nav/nav.component';
-import { UserAvatarComponent } from './header/user-avatar/user-avatar.component';
+import { FooterComponent, HeaderComponent, NavComponent, UserAvatarComponent } from './root/components';
 import { ConfigService } from './config/config.service';
 import { AppRoutingModule } from './app-routing.module';
 
