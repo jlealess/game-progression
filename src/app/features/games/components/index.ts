@@ -1,1 +1,1 @@
-export * from './view-games/games.component';
+export * from './view-games/view-games.component';
