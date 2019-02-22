@@ -1,13 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Data } from '@angular/router';
 import { ConfigService, User } from 'src/app/config/config.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-view-profile',
+  templateUrl: './view-profile.component.html',
+  styleUrls: ['./view-profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ViewProfileComponent implements OnInit {
   user: User
 
   constructor(private configService: ConfigService) { }
@@ -19,5 +18,4 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-
 }

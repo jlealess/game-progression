@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileComponent, EditProfileComponent } from './components';
+import { ViewProfileComponent, EditProfileComponent } from './components';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfileComponent,
+    component: ViewProfileComponent,
   },
   {
     path: 'edit',
