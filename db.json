@@ -34,8 +34,10 @@
     }
   ],
   "profile": {
+    "id": 1,
+    "languageId": 1,
     "firstName": "Katie",
-    "lastName": "Lealess",
+    "lastName": "Egevari",
     "image": "profile-image.jpg",
     "averageNumberOfHoursPerDay": "89"
   },

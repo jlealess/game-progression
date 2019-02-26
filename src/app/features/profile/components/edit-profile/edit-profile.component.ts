@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ConfigService, User } from 'src/app/config/config.service';
-import { NgForm } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
-  // @ViewChild('f') editProfile: NgForm;
   @Input() user: User;
   editProfile: FormGroup;
 
@@ -48,13 +46,17 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    const user = this.editProfile.value;
+    const user = {
+      ...this.user,
+      firstName: this.editProfile.value.firstName,
+      lastName: this.editProfile.value.lastName,
+      image: this.editProfile.value.image,
+      averageNumberOfHoursPerDay: this.editProfile.value.averageNumberOfHoursPerDay      
+    }
     this.configService.updateUser(user).subscribe(
       (response) => {
-        console.log(response);
         this.router.navigate(['my-profile']);
       }
     );
   }
-
 }
