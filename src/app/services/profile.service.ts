@@ -11,7 +11,7 @@ export interface User {
 }
 
 @Injectable()
-export class ConfigService {
+export class ProfileService {
   constructor(private http: HttpClient) { }
 
   profileEndpoint = 'http://localhost:3000/profile';

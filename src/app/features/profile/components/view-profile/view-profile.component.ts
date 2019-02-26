@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ConfigService, User } from 'src/app/config/config.service';
+import { ProfileService, User } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -9,10 +9,10 @@ import { ConfigService, User } from 'src/app/config/config.service';
 export class ViewProfileComponent implements OnInit {
   user: User
 
-  constructor(private configService: ConfigService) { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
-    this.configService.getUser().subscribe(
+    this.profileService.getUser().subscribe(
       (data) => {
         this.user = data;
       }

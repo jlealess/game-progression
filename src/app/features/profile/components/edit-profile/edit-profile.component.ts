@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { ConfigService, User } from 'src/app/config/config.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileService, User } from 'src/app/services/profile.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,10 +12,10 @@ export class EditProfileComponent implements OnInit {
   @Input() user: User;
   editProfile: FormGroup;
 
-  constructor(private configService: ConfigService, private router: Router) { }
+  constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit() {
-    this.configService.getUser().subscribe(
+    this.profileService.getUser().subscribe(
       (data) => {
         this.user = data;
         this.editProfile.patchValue(data);
@@ -53,7 +53,7 @@ export class EditProfileComponent implements OnInit {
       image: this.editProfile.value.image,
       averageNumberOfHoursPerDay: this.editProfile.value.averageNumberOfHoursPerDay      
     }
-    this.configService.updateUser(user).subscribe(
+    this.profileService.updateUser(user).subscribe(
       (response) => {
         this.router.navigate(['my-profile']);
       }

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent, NavComponent, UserAvatarComponent } from './root/components';
-import { ConfigService } from './config/config.service';
+import { ProfileService } from './services/profile.service';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     // FormsModule,
     // ReactiveFormsModule
   ],
-  providers: [ConfigService],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

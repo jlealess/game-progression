@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ConfigService } from './config/config.service';
+import { ProfileService } from './services/profile.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,13 @@ import { ConfigService } from './config/config.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  constructor(private configService: ConfigService) {}
+  constructor(private profileService: ProfileService) {}
   
   user: {};
   title = 'Game Progression';
 
   ngOnInit() {
-    this.configService.getUser().subscribe(
+    this.profileService.getUser().subscribe(
       (response) => {
         this.user = response;
       }
