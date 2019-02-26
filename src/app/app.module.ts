@@ -18,7 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // FormsModule,
+    // ReactiveFormsModule
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

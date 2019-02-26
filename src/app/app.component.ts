@@ -21,4 +21,8 @@ export class AppComponent {
     );
   }
 
+  ngOnChanges() {
+    console.log("changes");
+  }
+
 }

@@ -34,12 +34,10 @@
     }
   ],
   "profile": {
-    "id": 1,
-    "firstName": "Katie",
+    "firstName": "Kate",
     "lastName": "Egervari",
     "image": "profile-image.jpg",
-    "languageId": 1,
-    "averageNumberOfHoursPerDay": 2
+    "averageNumberOfHoursPerDay": "9"
   },
   "games": [
     {

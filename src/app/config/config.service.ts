@@ -19,4 +19,8 @@ export class ConfigService {
   getUser() {
     return this.http.get<User>(this.profileEndpoint);
   }
+
+  updateUser(user: User) {
+    return this.http.put<User>(this.profileEndpoint, user);
+  }
 }
