@@ -1,7 +1,7 @@
 <div class="profile__details__form-element" class="profile">
   <form 
     class="profile__form" 
-    *ngIf="user" 
+    *ngIf="(user$ | async) as user" 
     [formGroup]="editProfile"
     (ngSubmit)="onSubmit()">
   <div class="profile__header profile__inner">

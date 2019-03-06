@@ -1,7 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileService, User } from 'src/app/services/profile.service';
+import { ProfileService, User } from '../../services/profile.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as ProfileActions from '../../store/actions/profile.actions';
+import { Observable } from 'rxjs';
+import { getProfileState } from '../../store/selectors/profile.selector';
 
 @Component({
   selector: 'app-edit-profile',
@@ -9,25 +13,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
-  @Input() user: User;
+  user$: Observable<User>;
   editProfile: FormGroup;
 
-  constructor(private profileService: ProfileService, private router: Router) { }
+  constructor(private router: Router, private store: Store<any>) { }
 
   ngOnInit() {
-    this.profileService.getUser().subscribe(
-      (data) => {
-        this.user = data;
-        this.editProfile.patchValue(data);
-      }
-    );
-
     this.editProfile = new FormGroup({
       'firstName': new FormControl(null, Validators.required),
       'lastName': new FormControl(null, Validators.required),
       'image': new FormControl(null, Validators.required),
       'averageNumberOfHoursPerDay': new FormControl(null, Validators.required)
     });
+    this.user$ = this.store.select(getProfileState);
+    this.store.select(getProfileState).subscribe(
+      data => {
+        this.editProfile.patchValue(data);
+      }
+    );
   }
 
   onCancel(e) {
@@ -47,16 +50,13 @@ export class EditProfileComponent implements OnInit {
 
   onSubmit() {
     const user = {
-      ...this.user,
+      ...this.user$,
       firstName: this.editProfile.value.firstName,
       lastName: this.editProfile.value.lastName,
       image: this.editProfile.value.image,
       averageNumberOfHoursPerDay: this.editProfile.value.averageNumberOfHoursPerDay      
     }
-    this.profileService.updateUser(user).subscribe(
-      (response) => {
-        this.router.navigate(['my-profile']);
-      }
-    );
+    this.store.dispatch(new ProfileActions.UpdateUserProfile(user));
+    this.router.navigate(['my-profile']);
   }
 }

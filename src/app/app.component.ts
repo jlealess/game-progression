@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ProfileService } from './services/profile.service';
+import { ProfileService } from './features/profile/services/profile.service';
 
 @Component({
   selector: 'app-root',
