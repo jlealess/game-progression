@@ -9,10 +9,10 @@ export const initialState: ProfileState = {
   profile: {
     id: 1,
     languageId: 1,
-    firstName: "Katie",
-    lastName: "Egervari",
-    image: "profile-image.jpg",
-    averageNumberOfHoursPerDay: 5
+    firstName: "",
+    lastName: "",
+    image: "",
+    averageNumberOfHoursPerDay: 0
   }
 };
 
