@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileService, User } from '../../services/profile.service';
+import { User } from '../../../../models/user.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getProfileState } from '../../store/selectors/profile.selector';
+import { getProfileState } from '../../../../modules/profile/store/selectors/profile.selector';
 
 @Component({
   selector: 'app-view-profile',

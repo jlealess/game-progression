@@ -10,7 +10,7 @@ import { profileReducer } from './store/reducers/profile.reducer';
   imports: [
     CommonModule,
     StoreModule.forFeature('profile', profileReducer),
-    EffectsModule.forFeature([ProfileEffects])
+    // EffectsModule.forFeature([ProfileEffects])
   ]
 })
 export class ProfileModule { }
