@@ -7,7 +7,9 @@ import * as ProfileActions from '../actions/profile.actions';
 import { User } from '../../services/profile.service';
 import * as fromProfile from '../reducers/profile.reducer';
 import { getProfileState } from '../selectors/profile.selector';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ProfileEffects {
   @Effect()
   profileFetch = this.actions$
@@ -18,18 +20,21 @@ export class ProfileEffects {
           observe: 'body',
           responseType: 'json'
         })
-      })
+      }),
+      map(user => this.store.dispatch(new ProfileActions.SetUserProfile(user)))
     )
 
-  @Effect({ dispatch: false })
+  @Effect()
   profileUpdate = this.actions$
     .pipe(
       ofType(ProfileActions.ProfileActionTypes.UpdateUserProfile),
-      withLatestFrom(this.store.select(getProfileState)),
-      switchMap(([action, state]) => {
-        const req = new HttpRequest('PUT', 'http://localhost:3000/profile', state, { reportProgress: true });
-        return this.httpClient.request(req);
-      })
+      map((action: ProfileActions.UpdateUserProfile) => action.payload),
+      switchMap((payload) => {
+        const req = new HttpRequest('PUT', 'http://localhost:3000/profile', payload, { reportProgress: true });
+        return this.httpClient.request(req).pipe(
+          map(() => this.store.dispatch(new ProfileActions.SetUserProfile(payload)))
+        );
+      }),
     )
 
   constructor(private actions$: Actions,

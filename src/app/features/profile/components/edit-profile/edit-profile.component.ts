@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileService, User } from '../../services/profile.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import * as ProfileActions from '../../store/actions/profile.actions';
 import { Observable } from 'rxjs';
-import { getProfileState } from '../../store/selectors/profile.selector';
+import { User } from '../../../../models/user.models';
+import { getProfileState } from '../../../../modules/profile/store/selectors/profile.selector';
+import * as ProfileActions from '../../../../modules/profile/store/actions/profile.actions';
 
 @Component({
   selector: 'app-edit-profile',
