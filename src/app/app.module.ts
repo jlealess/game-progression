@@ -11,6 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProfileModule } from './modules/profile/profile.module';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { GamesModule } from './modules/games/games.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     AppRoutingModule,
     ProfileModule,
+    GamesModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument()

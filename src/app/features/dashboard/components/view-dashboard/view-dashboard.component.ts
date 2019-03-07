@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getProfileState } from '../../../../modules/profile/store/selectors/profile.selector';
+import { Game } from '../../../../models/game.models';
+import { getGamesState } from '../../../../modules/games/store/selectors/games.selector';
 
 @Component({
   selector: 'app-view-dashboard',
@@ -10,6 +12,7 @@ import { getProfileState } from '../../../../modules/profile/store/selectors/pro
 })
 export class ViewDashboardComponent implements OnInit {
   /* to be removed and replaced with data from API */
+  games$: Observable<Game[]>;
   games = [
     {
       "id": 1,
@@ -147,6 +150,9 @@ export class ViewDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.select('games').subscribe(
+      data => console.log(data)
+    )
    this.finishedGames = this.calculateFinishedGames().finishedGames;
    this.unfinishedGames = this.calculateFinishedGames().unfinishedGames;
    this.store.select(getProfileState).subscribe(

@@ -15,4 +15,4 @@ export class SetGames implements Action {
   constructor(public payload: Game[]) { }
 }
 
-export type ProfileActions = FetchGames | SetGames;
+export type GamesActions = FetchGames | SetGames;

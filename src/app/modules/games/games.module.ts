@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { profileReducer } from './store/reducers/profile.reducer';
+import { gamesReducer } from './store/reducers/games.reducer';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature('profile', profileReducer),
+    StoreModule.forFeature('games', gamesReducer),
   ]
 })
-export class ProfileModule { }
+export class GamesModule { }
