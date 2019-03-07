@@ -59,6 +59,6 @@ export class EditProfileComponent implements OnInit {
       averageNumberOfHoursPerDay: this.editProfile.value.averageNumberOfHoursPerDay      
     }
     this.store.dispatch(new ProfileActions.UpdateUserProfile(user));
-    // this.router.navigate(['my-profile']);
+    this.router.navigate(['my-profile']);
   }
 }
