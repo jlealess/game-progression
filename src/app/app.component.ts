@@ -23,7 +23,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.store.dispatch(new ProfileActions.FetchUserProfile());
-    // this.store.dispatch(new GamesActions.FetchGames());
+    this.store.dispatch(new GamesActions.FetchGames());
     this.user$ = this.store.select(getProfileState);
     this.games$ = this.store.select(getGamesState);
   }

@@ -30,7 +30,6 @@ export class ProfileEffects {
       ofType(ProfileActions.ProfileActionTypes.UpdateUserProfile),
       map((action: ProfileActions.UpdateUserProfile) => action.payload),
       switchMap((payload) => {
-        // const req = new HttpRequest('PUT', 'http://localhost:3000/profile', payload, { reportProgress: true });
         return this.httpClient.put<User>('http://localhost:3000/profile', { ...payload }).pipe(
           map(() => new ProfileActions.SetUserProfile(payload))
         );

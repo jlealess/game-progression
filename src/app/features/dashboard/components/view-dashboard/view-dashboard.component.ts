@@ -116,7 +116,7 @@ export class ViewDashboardComponent implements OnInit {
   ];
   /* */
   finishedGames: number = 0;
-  hoursPerDay: number = 0;
+  hoursPerDay: number = 2;
   timeRemaining: number = 0;
   unfinishedGames: number = 0;
 
@@ -157,7 +157,7 @@ export class ViewDashboardComponent implements OnInit {
    this.unfinishedGames = this.calculateFinishedGames().unfinishedGames;
    this.store.select(getProfileState).subscribe(
      data => {
-       this.hoursPerDay = data.averageNumberOfHoursPerDay;
+      //  this.hoursPerDay = data.averageNumberOfHoursPerDay;
        this.timeRemaining = this.calculateTimeRemaining();
      }
    );
