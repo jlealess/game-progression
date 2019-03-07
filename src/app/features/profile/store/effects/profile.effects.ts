@@ -18,16 +18,7 @@ export class ProfileEffects {
           observe: 'body',
           responseType: 'json'
         })
-      }),
-      map(
-        (profile) => {
-          console.log(profile);
-          return {
-            type: ProfileActions.ProfileActionTypes.SetUserProfile,
-            payload: profile
-          };
-        }
-      )
+      })
     )
 
   @Effect({ dispatch: false })

@@ -8,6 +8,7 @@ import { ProfileService } from './features/profile/services/profile.service';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { profileReducer } from './features/profile/store/reducers/profile.reducer';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { profileReducer } from './features/profile/store/reducers/profile.reduce
     AppRoutingModule,
     StoreModule.forRoot({
       profile: profileReducer
-    })
+    }),
+    EffectsModule.forRoot([])
     // FormsModule,
     // ReactiveFormsModule
   ],
