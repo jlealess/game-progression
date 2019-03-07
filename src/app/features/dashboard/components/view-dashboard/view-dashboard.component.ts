@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getProfileState } from '../../../../modules/profile/store/selectors/profile.selector';
 import { Game } from '../../../../models/game.models';
-import { getGamesState } from '../../../../modules/games/store/selectors/games.selector';
 
 @Component({
   selector: 'app-view-dashboard',
@@ -64,7 +63,4 @@ export class ViewDashboardComponent implements OnInit {
      }
    );
   }
-
-
-
 }
