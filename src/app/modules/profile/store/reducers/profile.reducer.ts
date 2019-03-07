@@ -18,11 +18,6 @@ export const initialState: ProfileState = {
 
 export function profileReducer(state = initialState, action: ProfileActions) {
   switch (action.type) {
-    case ProfileActionTypes.UpdateUserProfile:
-      return {
-        ...state,
-        profile: action.payload
-      };
     case ProfileActionTypes.SetUserProfile: {
       return {
         ...state,

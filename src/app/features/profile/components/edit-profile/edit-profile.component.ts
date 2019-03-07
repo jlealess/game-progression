@@ -14,6 +14,7 @@ import * as ProfileActions from '../../../../modules/profile/store/actions/profi
 })
 export class EditProfileComponent implements OnInit {
   user$: Observable<User>;
+  profile: User;
   editProfile: FormGroup;
 
   constructor(private router: Router, private store: Store<any>) { }
@@ -29,6 +30,7 @@ export class EditProfileComponent implements OnInit {
     this.store.select(getProfileState).subscribe(
       data => {
         this.editProfile.patchValue(data);
+        this.profile = data;
       }
     );
   }
@@ -50,13 +52,13 @@ export class EditProfileComponent implements OnInit {
 
   onSubmit() {
     const user = {
-      ...this.user$,
+      ...this.profile,
       firstName: this.editProfile.value.firstName,
       lastName: this.editProfile.value.lastName,
       image: this.editProfile.value.image,
       averageNumberOfHoursPerDay: this.editProfile.value.averageNumberOfHoursPerDay      
     }
     this.store.dispatch(new ProfileActions.UpdateUserProfile(user));
-    this.router.navigate(['my-profile']);
+    // this.router.navigate(['my-profile']);
   }
 }

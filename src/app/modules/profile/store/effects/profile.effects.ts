@@ -21,7 +21,7 @@ export class ProfileEffects {
           responseType: 'json'
         })
       }),
-      map(user => this.store.dispatch(new ProfileActions.SetUserProfile(user)))
+      map(user => new ProfileActions.SetUserProfile(user))
     )
 
   @Effect()
@@ -32,12 +32,11 @@ export class ProfileEffects {
       switchMap((payload) => {
         const req = new HttpRequest('PUT', 'http://localhost:3000/profile', payload, { reportProgress: true });
         return this.httpClient.request(req).pipe(
-          map(() => this.store.dispatch(new ProfileActions.SetUserProfile(payload)))
+          map(() => new ProfileActions.SetUserProfile(payload))
         );
       }),
     )
 
   constructor(private actions$: Actions,
-    private httpClient: HttpClient,
-    private store: Store<fromProfile.ProfileState>) {}
+    private httpClient: HttpClient) {}
 }
