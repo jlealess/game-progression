@@ -1,3 +1,28 @@
-<p>
-  dashboard works!
-</p>
+<div class="dashboard">
+  <div class="dashboard__header dashboard__inner">
+    <h2 class="dashboard__heading">
+      Your Dashboard
+    </h2>
+  </div>
+  <div class="dashboard__body dashboard__inner">
+    <h3 class="dashboard__subheading">Time Remaining: <span class="dashboard__subheading__detail">{{ timeRemaining.toFixed(1) }} Days</span></h3>
+    <div class="dashboard__data">
+      <h4 class="dashboard__data__label">Number of Unfinished Games: 
+        <span class="dashboard__data__label__detail">{{ unfinishedGames }}</span>
+      </h4>
+      <div class="progress-bar progress-bar--unfinished">
+        <span class="visually-hidden">Progress: {{ calculateProgressPercentage(unfinishedGames) }}</span>
+        <span class="progress-bar__inner progress-bar--unfinished__inner" [style.width]="calculateProgressPercentage(unfinishedGames)"></span>
+      </div>
+    </div>
+    <div class="dashboard__data">
+      <h4 class="dashboard__data__label">Number of Finished Games:
+        <span class="dashboard__data__label__detail">{{ finishedGames }}</span>
+      </h4>
+      <div class="progress-bar progress-bar--finished">
+        <span class="visually-hidden">Progress: {{ calculateProgressPercentage(finishedGames) }}</span>
+        <span class="progress-bar__inner progress-bar--finished__inner" [style.width]="calculateProgressPercentage(finishedGames)"></span>
+      </div>
+    </div>
+  </div>
+</div>
