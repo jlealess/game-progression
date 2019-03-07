@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { getProfileState } from '../../../../modules/profile/store/selectors/profile.selector';
 
 @Component({
   selector: 'app-view-dashboard',
@@ -108,13 +111,13 @@ export class ViewDashboardComponent implements OnInit {
       "isComplete": true
     }
   ];
-  hoursPerDay: number = 2;
   /* */
+  finishedGames: number = 0;
+  hoursPerDay: number = 0;
   timeRemaining: number = 0;
   unfinishedGames: number = 0;
-  finishedGames: number = 0;
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
 
   calculateTimeRemaining() {
     const games = [...this.games];
@@ -146,7 +149,14 @@ export class ViewDashboardComponent implements OnInit {
   ngOnInit() {
    this.finishedGames = this.calculateFinishedGames().finishedGames;
    this.unfinishedGames = this.calculateFinishedGames().unfinishedGames;
-   this.timeRemaining = this.calculateTimeRemaining();
+   this.store.select(getProfileState).subscribe(
+     data => {
+       this.hoursPerDay = data.averageNumberOfHoursPerDay;
+       this.timeRemaining = this.calculateTimeRemaining();
+     }
+   );
   }
+
+
 
 }

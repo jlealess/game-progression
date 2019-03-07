@@ -56,7 +56,7 @@ export class EditProfileComponent implements OnInit {
       firstName: this.editProfile.value.firstName,
       lastName: this.editProfile.value.lastName,
       image: this.editProfile.value.image,
-      averageNumberOfHoursPerDay: this.editProfile.value.averageNumberOfHoursPerDay      
+      averageNumberOfHoursPerDay: parseFloat(this.editProfile.value.averageNumberOfHoursPerDay)    
     }
     this.store.dispatch(new ProfileActions.UpdateUserProfile(user));
     this.router.navigate(['my-profile']);
