@@ -5,7 +5,10 @@ import { ProfileState } from '../reducers/profile.reducer';
 //   'profile'
 // )
 
-const getProfile = (state) => state.profile;
+const getProfile = (state) => {
+  console.log('state', state)
+ return state.profile
+};
 
 export const getProfileState = createSelector(
   getProfile,

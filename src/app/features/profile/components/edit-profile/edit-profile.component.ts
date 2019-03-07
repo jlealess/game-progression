@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileService, User } from '../../services/profile.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import * as ProfileActions from '../../store/actions/profile.actions';
 import { Observable } from 'rxjs';
-import { getProfileState } from '../../store/selectors/profile.selector';
+import { User } from '../../../../models/user.models';
+import { getProfileState } from '../../../../modules/profile/store/selectors/profile.selector';
+import * as ProfileActions from '../../../../modules/profile/store/actions/profile.actions';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,6 +14,7 @@ import { getProfileState } from '../../store/selectors/profile.selector';
 })
 export class EditProfileComponent implements OnInit {
   user$: Observable<User>;
+  profile: User;
   editProfile: FormGroup;
 
   constructor(private router: Router, private store: Store<any>) { }
@@ -29,6 +30,7 @@ export class EditProfileComponent implements OnInit {
     this.store.select(getProfileState).subscribe(
       data => {
         this.editProfile.patchValue(data);
+        this.profile = data;
       }
     );
   }
@@ -50,7 +52,7 @@ export class EditProfileComponent implements OnInit {
 
   onSubmit() {
     const user = {
-      ...this.user$,
+      ...this.profile,
       firstName: this.editProfile.value.firstName,
       lastName: this.editProfile.value.lastName,
       image: this.editProfile.value.image,

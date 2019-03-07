@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { User } from '../../../features/profile/services/profile.service';
+import { User } from '../../../models/user.models';
 
 @Component({
   selector: 'app-header',
