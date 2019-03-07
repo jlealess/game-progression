@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { Game } from '../../../../models/game.models';
 
 export enum GamesActionTypes {
   SetGames = 'SET_GAMES',
@@ -11,13 +12,7 @@ export class FetchGames implements Action {
 
 export class SetGames implements Action {
   readonly type = GamesActionTypes.SetGames;
-  constructor(public payload: Games) { }
+  constructor(public payload: Game[]) { }
 }
-
-// get user profile from API --> dispatch from view
-
-// handle error
-
-// success dispatches on effect --> do data transformaiton on effect rather than on component
 
 export type ProfileActions = FetchGames | SetGames;

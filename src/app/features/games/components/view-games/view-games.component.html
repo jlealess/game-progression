@@ -1,3 +1,12 @@
-<p>
-  games works!
-</p>
+<div class="games">
+  <div class="games__header games__inner">
+    <h2 class="games__heading">
+      My Games
+    </h2>
+    <button class="btn" routerLink="/games/edit">Edit</button>
+  </div>
+  <div class="games__body games__inner">
+    Games works!
+    <app-game [game]="game"></app-game>
+  </div>
+</div>
