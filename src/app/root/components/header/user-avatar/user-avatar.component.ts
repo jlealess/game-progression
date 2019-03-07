@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../../../features/profile/services/profile.service';
+import { User } from '../../../../models/user.models';
 
 @Component({
   selector: 'app-user-avatar',

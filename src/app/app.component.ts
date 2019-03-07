@@ -1,10 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ProfileService } from './features/profile/services/profile.service';
+// import { ProfileService } from './features/profile/services/profile.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getProfileState } from './features/profile/store/selectors/profile.selector';
-import { User } from './features/profile/services/profile.service';
-import * as ProfileActions from './features/profile/store/actions/profile.actions';
+import { getProfileState } from './modules/profile/store/selectors/profile.selector';
+import { User } from './models/user.models';
+import * as ProfileActions from './modules/profile/store/actions/profile.actions';
 
 @Component({
   selector: 'app-root',

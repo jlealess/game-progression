@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent, NavComponent, UserAvatarComponent } from './root/components';
-import { ProfileService } from './features/profile/services/profile.service';
+import { ProfileService } from './modules/profile/services/profile.service';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { profileReducer } from './features/profile/store/reducers/profile.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { ProfileModule } from './modules/profile/profile.module';
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,10 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({
-      profile: profileReducer
-    }),
-    EffectsModule.forRoot([])
+    ProfileModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    environment.production ? [] : StoreDevtoolsModule.instrument()
     // FormsModule,
     // ReactiveFormsModule
   ],
