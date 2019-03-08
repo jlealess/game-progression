@@ -7,11 +7,16 @@ import { Game } from '../../../../models/game.models';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  @Input() games: Game[];
   @Input() game: Game
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  calculateProgress(game) {
+    return (game.numberOfHoursPlayed / game.numberOfHoursToComplete) * 100;
   }
 
 }

@@ -6,7 +6,6 @@ import { ProfileState } from '../reducers/profile.reducer';
 // )
 
 const getProfile = (state) => {
-  console.log('state', state)
  return state.profile
 };
 

@@ -1,10 +1,19 @@
-<div class="game">
-  <h3 class="game__name">{{ game.name }}</h3>
-  <p class="game__platform">{{ game.platformId }}</p>
-  <p class="game__completed">Est. % completed: </p>
-  <p class="game__completion-date">Completion date</p>
-  <div class="game__image">
-    <img src="{{game.image}}" alt="">
+<div 
+  class="game card"
+  [ngClass]="{
+    completed: game.isComplete,
+    notStarted: (!game.isComplete && calculateProgress(game) === 0),
+    started: (!game.isComplete && calculateProgress(game) > 0)
+  }">
+  <div class="game__inner card__inner">
+    <div class="game__inner__text card__inner__text">
+      <h3 class="game__name" *ngIf="game">{{ game.name }}</h3>
+      <p class="game__stat game__stat--light">3DS</p>
+      <p class="game__stat">Est. % Completed: <span class="game__stat--light">{{calculateProgress(game).toFixed(1)}}%</span></p>
+      <p class="game__stat">Completion Date: <span class="game__stat--light">9/30/2019</span></p>
+    </div>
+    <div class="game__inner__thumbnail card__inner__thumbnail">
+      <img class="game__thumbnail" [src]="game.image" alt="{{ game.name }}">
+    </div>
   </div>
 </div>
-

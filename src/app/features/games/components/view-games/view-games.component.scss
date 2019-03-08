@@ -15,6 +15,13 @@
     }
   }
 
+  &__body {
+    display: grid;
+    grid-auto-rows: minmax (min-content, 1fr);
+    grid-gap: 1em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   &__details {
     margin: 0;
   }
@@ -31,7 +38,7 @@
     color: #d6dbdf;
     padding: 1em;
 
-    & + .games__inner {
+    & + .games__body {
       margin-top: 1em;
     }
   }

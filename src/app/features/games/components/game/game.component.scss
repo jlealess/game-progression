@@ -1,0 +1,42 @@
+.game {
+  background-color: #30495f;
+  border-color: #b43f3f;
+  border-style: solid;
+  border-width: 0;
+  border-left-width: 15px;
+  color: #d6dbdf;
+  height: 100%;
+  padding: 1em;
+
+  &.completed {
+    border-color: #76b43f;
+  }
+
+  &.started {
+    border-color: #b48c3f;
+  }
+
+  &.notStarted {
+    border-color: #b43f3f;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+  }
+
+  &__stat {
+    font-weight: bold;
+
+    &--light {
+      color: #9dafbd;
+      font-weight: normal;
+    }
+  }
+
+  &__thumbnail {
+    display: block;
+    max-width: 100%;
+    width: 100px;
+  }
+}

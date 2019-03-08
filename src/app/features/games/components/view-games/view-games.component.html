@@ -5,8 +5,9 @@
     </h2>
     <button class="btn" routerLink="/games/edit">Edit</button>
   </div>
-  <div class="games__body games__inner">
-    Games works!
-    <app-game [game]="game"></app-game>
+  <div class="games__body">
+    <app-game 
+      *ngFor="let game of (games$ | async)"
+      [game]="game"></app-game>
   </div>
 </div>
