@@ -1,12 +1,8 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, withLatestFrom, map } from 'rxjs/operators';
 import { HttpClient, HttpRequest } from '@angular/common/http';
-import { Store } from '@ngrx/store';
 
 import * as GamesActions from '../actions/games.actions';
-import { Game } from '../../../../models/game.models';
-import * as fromGames from '../reducers/games.reducer';
-import { getGamesState } from '../selectors/games.selector';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -22,6 +18,19 @@ export class GamesEffects {
         })
       }),
       map(games => new GamesActions.SetGames(games))
+    )
+    
+  @Effect()
+  getPlatforms = this.actions$
+    .pipe(
+      ofType(GamesActions.GamesActionTypes.FetchPlatforms),
+      switchMap((action: GamesActions.FetchPlatforms) => {
+        return this.httpClient.get<any>('http://localhost:3000/platforms', {
+          observe: 'body',
+          responseType: 'json'
+        })
+      }),
+      map(platforms => new GamesActions.SetPlatforms(platforms))
     )
 
   // @Effect()

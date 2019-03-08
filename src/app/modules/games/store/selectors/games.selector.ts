@@ -10,3 +10,8 @@ export const getGamesState = createSelector(
   getGames,
   (state: GamesState) => state.games
 )
+
+export const getPlatformsState = createSelector(
+  getGames,
+  (state: GamesState) => state.platforms
+)
