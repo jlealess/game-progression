@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Game } from '../../../models/game.models';
+import { Game, GameInput } from '../../../models/game.models';
 import { Platform } from '../../../models/platform.models';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class GamesService {
   platformsEndpoint = `${this.apiUrl}/platforms`;
 
   getGames() {
-    return this.http.get<Game[]>(this.gamesEndpoint, {
+    return this.http.get<GameInput[]>(this.gamesEndpoint, {
       observe: 'body',
       responseType: 'json'
     });
@@ -24,7 +24,7 @@ export class GamesService {
   }
 
   getPlatforms() {
-    return this.http.get<any>(this.platformsEndpoint, {
+    return this.http.get<Platform[]>(this.platformsEndpoint, {
       observe: "body",
       responseType: "json"
     });

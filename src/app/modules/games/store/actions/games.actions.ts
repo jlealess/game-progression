@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { Game } from '../../../../models/game.models';
-import { Platform } from '../../../../models/platform.models';
 
 export enum GamesActionTypes {
   SetGames = 'SET_GAMES',
@@ -19,12 +18,7 @@ export class FetchPlatforms implements Action {
 
 export class SetGames implements Action {
   readonly type = GamesActionTypes.SetGames;
-  constructor(public payload: any) { }
+  constructor(public payload: Game[]) { }
 }
 
-export class SetPlatforms implements Action {
-  readonly type = GamesActionTypes.SetPlatforms;
-  constructor(public payload: Platform[]) { }
-}
-
-export type GamesActions = FetchGames | SetGames | FetchPlatforms | SetPlatforms;
+export type GamesActions = FetchGames | SetGames;

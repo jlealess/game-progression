@@ -39,7 +39,6 @@ export class GamesEffects {
               const completionDate = new Date(date.setDate(date.getDate() + daysLeft)).toLocaleDateString();
               return {
                 ...game,
-                daysLeft,
                 completionDate
               }
             })

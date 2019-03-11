@@ -4,12 +4,10 @@ import { Platform } from '../../../../models/platform.models';
 
 export interface GamesState {
   games: Game[],
-  platforms: Platform[]
 }
 
 export const initialState: GamesState = {
   games: [],
-  platforms: []
 };
 
 export function gamesReducer(state = initialState, action: GamesActions) {
@@ -18,12 +16,6 @@ export function gamesReducer(state = initialState, action: GamesActions) {
       return {
         ...state,
         games: action.payload
-      }
-    }
-    case GamesActionTypes.SetPlatforms: {
-      return {
-        ...state,
-        platforms: action.payload
       }
     }
     default:
