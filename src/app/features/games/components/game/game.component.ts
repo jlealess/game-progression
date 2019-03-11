@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Game } from '../../../../models/game.models';
+import { Platform } from '../../../../models/platform.models';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -10,6 +11,7 @@ import { Store } from '@ngrx/store';
 export class GameComponent implements OnInit {
   @Input() games: Game[];
   @Input() game: Game;
+  @Input() platforms: Platform[];
 
   constructor(private store: Store<any>) { }
 
@@ -18,5 +20,10 @@ export class GameComponent implements OnInit {
 
   calculateProgress(game) {
     return (game.numberOfHoursPlayed / game.numberOfHoursToComplete) * 100;
+  }
+
+  getPlatform(id) {
+    const platform = this.platforms.find(platform => platform.id === id);
+    return platform.name;
   }
 }

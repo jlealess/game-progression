@@ -19,7 +19,7 @@ export class GamesEffects {
       }),
       map(games => new GamesActions.SetGames(games))
     )
-    
+
   @Effect()
   getPlatforms = this.actions$
     .pipe(

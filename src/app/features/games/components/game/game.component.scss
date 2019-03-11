@@ -7,6 +7,12 @@
   color: #d6dbdf;
   height: 100%;
   padding: 1em;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #455B6F;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+  }
 
   &.completed {
     border-color: #76b43f;
@@ -23,6 +29,12 @@
   &__inner {
     display: grid;
     grid-template-columns: 1fr 100px;
+  }
+
+  &__link {
+    color: inherit;
+    display: block;
+    text-decoration: none;
   }
 
   &__stat {
