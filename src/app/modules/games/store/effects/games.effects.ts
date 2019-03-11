@@ -1,11 +1,11 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { switchMap, withLatestFrom, map, mergeMap } from 'rxjs/operators';
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 import * as GamesActions from '../actions/games.actions';
 import { Injectable } from '@angular/core';
 import { GamesService } from '../../services/games.service';
-import { gamesReducer } from '../reducers/games.reducer';
+import { ProfileService } from 'src/app/modules/profile/services/profile.service';
 
 @Injectable()
 export class GamesEffects {
@@ -14,10 +14,10 @@ export class GamesEffects {
     .pipe(
       ofType(GamesActions.GamesActionTypes.FetchGames),
       switchMap((action: GamesActions.FetchGames) => {
-        return this.service.getGames();
+        return this.gamesService.getGames();
       }),
       mergeMap((games) => {
-        return this.service.getPlatforms().pipe(
+        return this.gamesService.getPlatforms().pipe(
           map(platforms => {
             console.log(platforms);
             return games.map(game => {
@@ -28,6 +28,33 @@ export class GamesEffects {
               return {...game, platformName}
             })
           }))
+      }),
+      mergeMap((games) => {
+        return this.profileService.getUser().pipe(
+          map(user => {
+            return games.map(game => {
+              const hoursLeft = game.numberOfHoursToComplete - game.numberOfHoursPlayed;
+              const daysLeft = hoursLeft / user.averageNumberOfHoursPerDay;
+              const date = new Date();
+              const completionDate = new Date(date.setDate(date.getDate() + daysLeft)).toLocaleDateString();
+              return {
+                ...game,
+                daysLeft,
+                completionDate
+              }
+            })
+          }) 
+        )
+      }),
+      map(games => {
+        const newGames = [...games];
+        return newGames.map(game => {
+          const percentCompleted = (game.numberOfHoursPlayed / game.numberOfHoursToComplete) * 100;
+          return {
+            ...game, 
+            percentCompleted
+          }
+        })
       }),
       map(games => new GamesActions.SetGames(games))
     )
@@ -60,5 +87,6 @@ export class GamesEffects {
 
   constructor(private actions$: Actions,
     private httpClient: HttpClient,
-    private service: GamesService) { }
+    private gamesService: GamesService,
+    private profileService: ProfileService) { }
 }

@@ -8,7 +8,6 @@
   <div class="games__body">
     <app-game 
       *ngFor="let game of (games$ | async)"
-      [game]="game"
-      [platforms]="platforms"></app-game>
+      [game]="game"></app-game>
   </div>
 </div>

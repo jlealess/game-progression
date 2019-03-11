@@ -19,7 +19,7 @@ export class FetchPlatforms implements Action {
 
 export class SetGames implements Action {
   readonly type = GamesActionTypes.SetGames;
-  constructor(public payload: Game[]) { }
+  constructor(public payload: any) { }
 }
 
 export class SetPlatforms implements Action {
