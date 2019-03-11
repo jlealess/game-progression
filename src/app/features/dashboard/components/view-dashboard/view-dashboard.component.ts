@@ -49,7 +49,6 @@ export class ViewDashboardComponent implements OnInit {
   ngOnInit() {
     this.store.select('games').subscribe(
       data => {
-        console.log(data);
         this.games$ = data;
         this.games = data.games;
         this.finishedGames = this.calculateFinishedGames().finishedGames;

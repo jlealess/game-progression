@@ -19,7 +19,6 @@ export class GamesEffects {
       mergeMap((games) => {
         return this.gamesService.getPlatforms().pipe(
           map(platforms => {
-            console.log(platforms);
             return games.map(game => {
               const platform = platforms.find(
                 platform => platform.id === game.platformId
