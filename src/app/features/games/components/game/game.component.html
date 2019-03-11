@@ -10,7 +10,7 @@
     <div class="game__inner card__inner">
       <div class="game__inner__text card__inner__text">
         <h3 class="game__name" *ngIf="game">{{ game.name }}</h3>
-        <p class="game__stat game__stat--light">{{ getPlatform(game.platformId) }}</p>
+        <p class="game__stat game__stat--light">{{ game.platformName }}</p>
         <p class="game__stat">Est. % Completed: <span class="game__stat--light">{{calculateProgress(game).toFixed(1)}}%</span></p>
         <p class="game__stat">Completion Date: <span class="game__stat--light">9/30/2019</span></p>
       </div>

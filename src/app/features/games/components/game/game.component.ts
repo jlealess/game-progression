@@ -21,9 +21,4 @@ export class GameComponent implements OnInit {
   calculateProgress(game) {
     return (game.numberOfHoursPlayed / game.numberOfHoursToComplete) * 100;
   }
-
-  getPlatform(id) {
-    const platform = this.platforms.find(platform => platform.id === id);
-    return platform.name;
-  }
 }

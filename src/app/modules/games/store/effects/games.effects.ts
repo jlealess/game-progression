@@ -1,9 +1,11 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { switchMap, withLatestFrom, map } from 'rxjs/operators';
+import { switchMap, withLatestFrom, map, mergeMap } from 'rxjs/operators';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 
 import * as GamesActions from '../actions/games.actions';
 import { Injectable } from '@angular/core';
+import { GamesService } from '../../services/games.service';
+import { gamesReducer } from '../reducers/games.reducer';
 
 @Injectable()
 export class GamesEffects {
@@ -12,26 +14,36 @@ export class GamesEffects {
     .pipe(
       ofType(GamesActions.GamesActionTypes.FetchGames),
       switchMap((action: GamesActions.FetchGames) => {
-        return this.httpClient.get<any>('http://localhost:3000/games', {
-          observe: 'body',
-          responseType: 'json'
-        })
+        return this.service.getGames();
+      }),
+      mergeMap((games) => {
+        return this.service.getPlatforms().pipe(
+          map(platforms => {
+            console.log(platforms);
+            return games.map(game => {
+              const platform = platforms.find(
+                platform => platform.id === game.platformId
+              );
+              const platformName = platform.name;
+              return {...game, platformName}
+            })
+          }))
       }),
       map(games => new GamesActions.SetGames(games))
     )
 
-  @Effect()
-  getPlatforms = this.actions$
-    .pipe(
-      ofType(GamesActions.GamesActionTypes.FetchPlatforms),
-      switchMap((action: GamesActions.FetchPlatforms) => {
-        return this.httpClient.get<any>('http://localhost:3000/platforms', {
-          observe: 'body',
-          responseType: 'json'
-        })
-      }),
-      map(platforms => new GamesActions.SetPlatforms(platforms))
-    )
+  // @Effect()
+  // getPlatforms = this.actions$
+  //   .pipe(
+  //     ofType(GamesActions.GamesActionTypes.FetchPlatforms),
+  //     switchMap((action: GamesActions.FetchPlatforms) => {
+  //       return this.httpClient.get<any>('http://localhost:3000/platforms', {
+  //         observe: 'body',
+  //         responseType: 'json'
+  //       })
+  //     }),
+  //     map(platforms => new GamesActions.SetPlatforms(platforms))
+  //   )
 
   // @Effect()
   // profileUpdate = this.actions$
@@ -47,5 +59,6 @@ export class GamesEffects {
   //   )
 
   constructor(private actions$: Actions,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient,
+    private service: GamesService) { }
 }

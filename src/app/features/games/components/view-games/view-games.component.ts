@@ -10,30 +10,6 @@ import { Game } from '../../../../models/game.models';
   styleUrls: ['./view-games.component.scss']
 })
 export class ViewGamesComponent implements OnInit {
-  /* replace with data from state */
-  platforms = [
-    {
-      "id": 1,
-      "name": "PS4"
-    },
-    {
-      "id": 2,
-      "name": "Switch"
-    },
-    {
-      "id": 3,
-      "name": "Wii U"
-    },
-    {
-      "id": 4,
-      "name": "3DS"
-    },
-    {
-      "id": 5,
-      "name": "PC"
-    }
-  ]
-  /* */
   games$: Observable<Game[]>;
   
   constructor(private store: Store<any>) { }
