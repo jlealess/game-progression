@@ -8,6 +8,7 @@ import { Game } from './models/game.models';
 import * as ProfileActions from './modules/profile/store/actions/profile.actions';
 import * as GamesActions from './modules/games/store/actions/games.actions';
 import * as DashboardActions from './modules/dashboard/store/actions/dashboard.actions';
+import { Dashboard } from './models/dashboard.models';
 
 @Component({
   selector: 'app-root',

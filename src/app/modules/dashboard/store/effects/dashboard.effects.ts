@@ -30,11 +30,12 @@ export class DashboardEffects {
                 return acc + curr;
               }, 0);
             const timeRemaining = hoursRemaining / hoursPerDay;
-            return { 
+            const dashboard = {
               timeRemaining,
               finishedGames,
               unfinishedGames
-             };
+            };
+            return dashboard;
           });
         })
       );

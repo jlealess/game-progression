@@ -1,6 +1,5 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, map, mergeMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 
 import * as GamesActions from '../actions/games.actions';
 import { Injectable } from '@angular/core';
@@ -59,34 +58,7 @@ export class GamesEffects {
       map(games => new GamesActions.SetGames(games))
     )
 
-  // @Effect()
-  // getPlatforms = this.actions$
-  //   .pipe(
-  //     ofType(GamesActions.GamesActionTypes.FetchPlatforms),
-  //     switchMap((action: GamesActions.FetchPlatforms) => {
-  //       return this.httpClient.get<any>('http://localhost:3000/platforms', {
-  //         observe: 'body',
-  //         responseType: 'json'
-  //       })
-  //     }),
-  //     map(platforms => new GamesActions.SetPlatforms(platforms))
-  //   )
-
-  // @Effect()
-  // profileUpdate = this.actions$
-  //   .pipe(
-  //     ofType(ProfileActions.ProfileActionTypes.UpdateUserProfile),
-  //     map((action: ProfileActions.UpdateUserProfile) => action.payload),
-  //     switchMap((payload) => {
-  //       // const req = new HttpRequest('PUT', 'http://localhost:3000/profile', payload, { reportProgress: true });
-  //       return this.httpClient.put<User>('http://localhost:3000/profile', { ...payload }).pipe(
-  //         map(() => new ProfileActions.SetUserProfile(payload))
-  //       );
-  //     }),
-  //   )
-
-  constructor(private actions$: Actions,
-    private httpClient: HttpClient,
+    constructor(private actions$: Actions,
     private gamesService: GamesService,
     private profileService: ProfileService) { }
 }
