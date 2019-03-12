@@ -7,6 +7,7 @@ import { User } from './models/user.models';
 import { Game } from './models/game.models';
 import * as ProfileActions from './modules/profile/store/actions/profile.actions';
 import * as GamesActions from './modules/games/store/actions/games.actions';
+import * as DashboardActions from './modules/dashboard/store/actions/dashboard.actions';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent {
   ngOnInit() {
     this.store.dispatch(new ProfileActions.FetchUserProfile());
     this.store.dispatch(new GamesActions.FetchGames());
+    this.store.dispatch(new DashboardActions.FetchDashboard());
     this.user$ = this.store.select(getProfileState);
     this.games$ = this.store.select(getGamesState);
   }

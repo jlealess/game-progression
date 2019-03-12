@@ -12,6 +12,7 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { GamesModule } from './modules/games/games.module';
+import { GamesService } from './modules/games/services/games.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { GamesModule } from './modules/games/games.module';
     // FormsModule,
     // ReactiveFormsModule
   ],
-  providers: [ProfileService],
+  providers: [ProfileService, GamesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

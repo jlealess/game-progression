@@ -16,6 +16,7 @@ export class GameComponent implements OnInit {
   }
 
   calculateCompletionDate(daysToComplete) {
+    
 
   }
 }
