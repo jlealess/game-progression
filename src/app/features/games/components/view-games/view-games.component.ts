@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getGamesState, getPlatformsState } from '../../../../modules/games/store/selectors/games.selector';
+import { getGamesState } from '../../../../modules/games/store/selectors/games.selector';
 import { Game } from '../../../../models/game.models';
 
 @Component({

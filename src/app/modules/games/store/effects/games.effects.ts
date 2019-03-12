@@ -35,7 +35,9 @@ export class GamesEffects {
               const hoursLeft = game.numberOfHoursToComplete - game.numberOfHoursPlayed;
               const daysLeft = hoursLeft / user.averageNumberOfHoursPerDay;
               const date = new Date();
-              const completionDate = new Date(date.setDate(date.getDate() + daysLeft)).toLocaleDateString();
+              const completionDate = new Date(
+                date.setDate(date.getDate() + daysLeft)
+              ).toLocaleDateString("en-US");
               return {
                 ...game,
                 completionDate
