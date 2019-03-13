@@ -5,6 +5,7 @@ import * as GamesActions from '../actions/games.actions';
 import { Injectable } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 import { ProfileService } from 'src/app/modules/profile/services/profile.service';
+import { mapPlatformsToGames, mapUserToGames } from '../../functions';
 
 @Injectable()
 export class GamesEffects {
@@ -18,42 +19,15 @@ export class GamesEffects {
       mergeMap((games) => {
         return this.gamesService.getPlatforms().pipe(
           map(platforms => {
-            return games.map(game => {
-              const platform = platforms.find(
-                platform => platform.id === game.platformId
-              );
-              const platformName = platform.name;
-              return {...game, platformName}
-            })
+            return mapPlatformsToGames(platforms, games);
           }))
       }),
       mergeMap((games) => {
         return this.profileService.getUser().pipe(
           map(user => {
-            return games.map(game => {
-              const hoursLeft = game.numberOfHoursToComplete - game.numberOfHoursPlayed;
-              const daysLeft = hoursLeft / user.averageNumberOfHoursPerDay;
-              const date = new Date();
-              const completionDate = new Date(
-                date.setDate(date.getDate() + daysLeft)
-              ).toLocaleDateString("en-US");
-              return {
-                ...game,
-                completionDate
-              }
-            })
+            return mapUserToGames(user, games);
           }) 
         )
-      }),
-      map(games => {
-        const newGames = [...games];
-        return newGames.map(game => {
-          const percentCompleted = (game.numberOfHoursPlayed / game.numberOfHoursToComplete) * 100;
-          return {
-            ...game, 
-            percentCompleted
-          }
-        })
       }),
       map(games => new GamesActions.SetGames(games))
     )
