@@ -1,3 +1,20 @@
-<p>
-  edit-game works!
-</p>
+<div class="edit-game">
+  <form class="edit-game__form" *ngIf="(user$ | async) as user" [formGroup]="editProfile" (ngSubmit)="onSubmit()">
+    <div class="profile__header profile__inner">
+      <h2 class="profile__heading">
+        Edit Game
+      </h2>
+      <div class="edit-game__buttons">
+        <button class="btn btn--secondary" type="submit" [disabled]="!editProfile.valid">Save</button>
+        <button class="btn btn--primary" (click)="onCancel($event)">Cancel</button>
+      </div>
+    </div>
+    <div class="profile__body profile__inner">
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="firstName">First Name</label>
+        <input class="edit-game__form__input" type="text" name="firstName" formControlName="firstName" />
+        <!-- <p class="edit-game__form__error" *ngIf="!firstName.valid && firstName.touched">First name must only contain letters</p> -->
+      </div>
+    </div>
+  </form>
+</div>
