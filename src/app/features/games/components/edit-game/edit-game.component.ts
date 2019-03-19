@@ -68,6 +68,11 @@ export class EditGameComponent implements OnInit {
     this.editGame.reset();
   }
 
+  onDelete() {
+    this.store.dispatch(new GamesActions.DeleteGame(this.gameId));
+    this.router.navigate(["games"]);
+  }
+
   onSubmit() {
     const game = {
       ...this.game,

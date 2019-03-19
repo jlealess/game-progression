@@ -75,6 +75,17 @@ export class GamesEffects {
     })
   );
 
+  @Effect()
+  deleteGame = this.actions$.pipe(
+    ofType(GamesActions.GamesActionTypes.DeleteGame),
+    map((action: GamesActions.DeleteGame) => action.payload),
+    switchMap(gameId => {
+      return this.gamesService
+        .deleteGame(gameId)
+        .pipe(map(() => new GamesActions.FetchGames()));
+    })
+  );
+
   constructor(
     private actions$: Actions,
     private gamesService: GamesService,

@@ -34,6 +34,10 @@ export class GamesService {
     return this.http.put<GameInput>(`${this.gamesEndpoint}/${game.id}`, game);
   }
 
+  deleteGame(gameId: number) {
+    return this.http.delete<number>(`${this.gamesEndpoint}/${gameId}`);
+  }
+
   getPlatforms() {
     return this.http.get<Platform[]>(this.platformsEndpoint, {
       observe: "body",

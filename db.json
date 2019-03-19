@@ -98,17 +98,6 @@
       "isComplete": false
     },
     {
-      "id": 6,
-      "dateCreated": "2018-09-11T14:07:46+00:00",
-      "name": "Marvel's Spider-Man",
-      "image": "https://howlongtobeat.com/gameimages/44852_Spider-Man_(2017).jpg",
-      "platformId": 1,
-      "priority": 9,
-      "numberOfHoursPlayed": 0.5,
-      "numberOfHoursToComplete": 15.5,
-      "isComplete": false
-    },
-    {
       "id": 7,
       "dateCreated": "2018-10-04T00:00:00+00:00",
       "name": "Mega Man 11",

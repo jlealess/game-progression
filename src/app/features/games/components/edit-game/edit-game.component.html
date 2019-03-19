@@ -9,8 +9,10 @@
         Edit Game
       </h2>
       <div class="edit-game__buttons">
-        <button class="btn btn--secondary" type="submit" [disabled]="!editGame.valid">Save</button>
+        <button class="btn btn--success btn--secondary" type="submit" [disabled]="!editGame.valid">Save</button>
+        <button class="btn btn--danger" (click)="onDelete($event)">Delete</button>
         <button class="btn btn--primary" (click)="onCancel($event)">Cancel</button>
+
       </div>
     </div>
     <div class="edit-game__body edit-game__inner">
