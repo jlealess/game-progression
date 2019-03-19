@@ -1,4 +1,4 @@
-<div class="edit-game__form-element">
+<div class="edit-game edit-game__form-element">
   <form 
     class="edit-game__form" 
     *ngIf="(game$ | async) as game" 
@@ -19,7 +19,11 @@
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="name">Name</label>
         <input class="edit-game__form__input" type="text" name="name" formControlName="name" />
-        <!-- <p class="edit-game__form__error" *ngIf="!name.valid && name.touched">First name must only contain letters</p> -->
+        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+        </div>      -->
       </div>
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="image">Image URL</label>
@@ -56,8 +60,7 @@
       </div>
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="isComplete">Complete</label>
-        <input class="edit-game__form__input" type="checkbox" name="isComplete"
-          formControlName="isComplete" />
+        <input class="edit-game__form__input edit-game__form__input--checkbox" type="checkbox" name="isComplete" formControlName="isComplete" />
         <!-- <p class="edit-game__form__error" *ngIf="!isComplete.valid && isComplete.touched">First name must only contain letters</p> -->
       </div>
     </div>
