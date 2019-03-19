@@ -21,10 +21,4 @@ export class SetUserProfile implements Action {
   constructor(public payload: User) {}
 }
 
-// get user profile from API --> dispatch from view
-
-// handle error
-
-// success dispatches on effect --> do data transformaiton on effect rather than on component
-
 export type ProfileActions = UpdateUserProfile | SetUserProfile | FetchUserProfile;

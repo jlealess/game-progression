@@ -14,6 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { GamesModule } from './modules/games/games.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { GamesService } from './modules/games/services/games.service';
+import { UiModule } from './modules/ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,10 @@ import { GamesService } from './modules/games/services/games.service';
     ProfileModule,
     GamesModule,
     DashboardModule,
+    UiModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument()
-    // FormsModule,
-    // ReactiveFormsModule
   ],
   providers: [ProfileService, GamesService],
   bootstrap: [AppComponent]

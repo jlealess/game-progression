@@ -45,13 +45,13 @@
     {
       "id": 1,
       "dateCreated": "2018-09-11T14:07:46+00:00",
-      "name": "God of War",
+      "name": "Goo of War",
       "image": "https://howlongtobeat.com/gameimages/38050_God_of_War.jpg",
       "platformId": 1,
-      "priority": 8,
+      "priority": 5,
       "numberOfHoursPlayed": 2,
       "numberOfHoursToComplete": 19.5,
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 2,
@@ -69,11 +69,11 @@
       "dateCreated": "2018-09-11T14:07:46+00:00",
       "name": "Dragon Quest XI: Echoes of an Elusive Age",
       "image": "https://howlongtobeat.com/gameimages/39508_Dragon_Quest_XI_In_Search_of_Departed_Time.jpg",
-      "platformId": 1,
+      "platformId": 3,
       "priority": 10,
       "numberOfHoursPlayed": 2,
       "numberOfHoursToComplete": 56.5,
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,

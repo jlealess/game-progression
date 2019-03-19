@@ -1,0 +1,29 @@
+button {
+  background-color: #d6dbdf;
+  border: none;
+  border-radius: 0.25rem;
+  color: #30495f;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  padding: 10px 80px;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+
+  &.primary {
+    background-color: #76b43f;
+  }
+
+  &.secondary {
+    background-color: #b43f3f;
+    color: #d6dbdf;
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    background-color: grey;
+  }
+}

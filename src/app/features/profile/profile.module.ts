@@ -3,6 +3,7 @@ import { ViewProfileComponent, EditProfileComponent } from './components';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UiModule } from 'src/app/modules/ui/ui.module';
 
 @NgModule({
   declarations: [ViewProfileComponent, EditProfileComponent],
@@ -11,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    UiModule
   ],
   providers: []
 })

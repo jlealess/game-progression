@@ -4,11 +4,11 @@ import { ViewGamesComponent, EditGameComponent } from './components/';
 
 const routes: Routes = [
   {
-    path: '',
-    component: ViewGamesComponent,
+    path: "",
+    component: ViewGamesComponent
   },
   {
-    path: 'edit',
+    path: "edit/:id",
     component: EditGameComponent
   }
 ];

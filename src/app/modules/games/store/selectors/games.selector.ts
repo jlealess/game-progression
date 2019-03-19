@@ -9,3 +9,8 @@ export const getGamesState = createSelector(
   getGames,
   (state: GamesState) => state.games
 )
+
+export const getEditedGame = createSelector(
+  getGames,
+  (state: GamesState) => state.editedGame
+)

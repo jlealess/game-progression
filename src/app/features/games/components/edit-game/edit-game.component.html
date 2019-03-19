@@ -1,19 +1,62 @@
-<div class="edit-game">
-  <form class="edit-game__form" *ngIf="(user$ | async) as user" [formGroup]="editProfile" (ngSubmit)="onSubmit()">
-    <div class="profile__header profile__inner">
-      <h2 class="profile__heading">
+<div class="edit-game__form-element">
+  <form 
+    class="edit-game__form" 
+    *ngIf="(game$ | async) as game" 
+    [formGroup]="editGame" 
+    (ngSubmit)="onSubmit()">
+    <div class="edit-game__header edit-game__inner">
+      <h2 class="edit-game__heading">
         Edit Game
       </h2>
       <div class="edit-game__buttons">
-        <button class="btn btn--secondary" type="submit" [disabled]="!editProfile.valid">Save</button>
+        <button class="btn btn--secondary" type="submit" [disabled]="!editGame.valid">Save</button>
         <button class="btn btn--primary" (click)="onCancel($event)">Cancel</button>
       </div>
     </div>
-    <div class="profile__body profile__inner">
+    <div class="edit-game__body edit-game__inner">
       <div class="edit-game__form__element">
-        <label class="edit-game__form__label" for="firstName">First Name</label>
-        <input class="edit-game__form__input" type="text" name="firstName" formControlName="firstName" />
-        <!-- <p class="edit-game__form__error" *ngIf="!firstName.valid && firstName.touched">First name must only contain letters</p> -->
+        <label class="edit-game__form__label" for="name">Name</label>
+        <input class="edit-game__form__input" type="text" name="name" formControlName="name" />
+        <!-- <p class="edit-game__form__error" *ngIf="!name.valid && name.touched">First name must only contain letters</p> -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="image">Image URL</label>
+        <input class="edit-game__form__input" type="text" name="image" formControlName="image" />
+        <!-- <p class="edit-game__form__error" *ngIf="!image.valid && image.touched">Last name must only contain letters</p> -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="platformId">PlatformId</label>
+        <select class="edit-game__form__input" type="number" name="platformId"
+          formControlName="platformId">
+          <option value="" selected="selected">Choose a platform...</option>
+          <option *ngFor="let platform of platforms" [ngValue]="platform.id">
+            {{ platform.name }}
+          </option>
+        </select>
+        <!-- <p class="edit-game__form__error" *ngIf="!platformId.valid && platformId.touched">First name must only contain letters</p> -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="numberOfHoursToComplete">Number of Hours to Complete</label>
+        <input class="edit-game__form__input" type="number" name="numberOfHoursToComplete" formControlName="numberOfHoursToComplete" />
+        <!-- <p class="edit-game__form__error" *ngIf="!numberOfHoursToComplete.valid && numberOfHoursToComplete.touched">First name must only contain letters</p> -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="priority">Priority</label>
+        <input class="edit-game__form__input" type="number" name="priority"
+          formControlName="priority" />
+        <!-- <p class="edit-game__form__error" *ngIf="!priority.valid && priority.touched">First name must only contain letters</p> -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="numberOfHoursPlayed">Hours Played</label>
+        <input class="edit-game__form__input" type="number" name="numberOfHoursPlayed"
+          formControlName="numberOfHoursPlayed" />
+        <!-- <p class="edit-game__form__error" *ngIf="!numberOfHoursPlayed.valid && numberOfHoursPlayed.touched">First name must only contain letters</p> -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="isComplete">Complete</label>
+        <input class="edit-game__form__input" type="checkbox" name="isComplete"
+          formControlName="isComplete" />
+        <!-- <p class="edit-game__form__error" *ngIf="!isComplete.valid && isComplete.touched">First name must only contain letters</p> -->
       </div>
     </div>
   </form>

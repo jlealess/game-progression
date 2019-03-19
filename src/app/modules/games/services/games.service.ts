@@ -19,8 +19,19 @@ export class GamesService {
     });
   }
 
+  getGame(gameId: number) {
+    return this.http.get<GameInput>(`${this.gamesEndpoint}?id=${gameId}`, {
+      observe: 'body',
+      responseType: 'json'
+    })
+  }
+
   updateGames(games: Game[]) {
     return this.http.put<Game[]>(this.gamesEndpoint, games);
+  }
+
+  updateGame(game: GameInput) {
+    return this.http.put<GameInput>(`${this.gamesEndpoint}/${game.id}`, game);
   }
 
   getPlatforms() {

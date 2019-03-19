@@ -1,0 +1,18 @@
+.form {
+  &__element {
+    margin-bottom: 1em;
+  }
+
+  &__input {
+    background-color: #d6dbdf;
+    border: none;
+    font-size: 1em;
+    padding: 5px;
+    width: 350px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
