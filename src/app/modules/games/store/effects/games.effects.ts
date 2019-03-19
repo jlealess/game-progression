@@ -1,14 +1,35 @@
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType, OnIdentifyEffects } from '@ngrx/effects';
 import { switchMap, map, mergeMap } from 'rxjs/operators';
 
 import * as GamesActions from '../actions/games.actions';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 import { ProfileService } from 'src/app/modules/profile/services/profile.service';
 import { mapPlatformsToGames, mapUserToGames } from '../../functions';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { GameInput } from 'src/app/models/game.models';
+import { Platform } from 'src/app/models/platform.models';
+import { getGamesState } from '../selectors/games.selector';
 
 @Injectable()
 export class GamesEffects {
+  games$: Observable<GameInput[]>;
+  platforms$: Observable<Platform[]>;
+  
+  @Effect()
+  getPlatforms = this.actions$.pipe(
+    ofType(GamesActions.GamesActionTypes.FetchPlatforms),
+    switchMap((action: GamesActions.FetchPlatforms) => {
+      return this.gamesService.getPlatforms().pipe(
+        map((platforms) => {
+          console.log(platforms);
+          return new GamesActions.SetPlatforms(platforms);
+        })
+      );
+    }),
+  )
+
   @Effect()
   getGames = this.actions$.pipe(
     ofType(GamesActions.GamesActionTypes.FetchGames),
@@ -57,6 +78,6 @@ export class GamesEffects {
   constructor(
     private actions$: Actions,
     private gamesService: GamesService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
   ) {}
 }

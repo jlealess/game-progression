@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, getPlatform } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { GameInput } from 'src/app/models/game.models';
 import { Observable } from 'rxjs';
 import * as GamesActions from '../../../../modules/games/store/actions/games.actions';
-import { getEditedGame } from 'src/app/modules/games/store/selectors/games.selector';
+import { getEditedGame, getPlatforms } from 'src/app/modules/games/store/selectors/games.selector';
 import { Platform } from 'src/app/models/platform.models';
 
 
@@ -20,28 +20,7 @@ export class EditGameComponent implements OnInit {
   editGame: FormGroup;
   gameId: number;
   private sub: any;
-  platforms: Platform[] = [
-    {
-      "id": 1,
-      "name": "PS4"
-    },
-    {
-      "id": 2,
-      "name": "Switch"
-    },
-    {
-      "id": 3,
-      "name": "Wii U"
-    },
-    {
-      "id": 4,
-      "name": "3DS"
-    },
-    {
-      "id": 5,
-      "name": "PC"
-    }
-  ]
+  platforms$: Observable<Platform[]>;
 
   constructor(private router: Router, private store: Store<any>, private route: ActivatedRoute) { }
 
@@ -58,9 +37,10 @@ export class EditGameComponent implements OnInit {
       'numberOfHoursToComplete': new FormControl(null, Validators.required),
       'priority': new FormControl(null, [Validators.required, Validators.min(1), Validators.max(10)]),
       'isComplete': new FormControl(false),
-      'platformId': new FormControl(null)
+      'platformId': new FormControl(0)
     });
     this.game$ = this.store.select(getEditedGame);
+    this.platforms$ = this.store.select(getPlatforms);
     this.store.select(getEditedGame).subscribe(
       data => {
         // this.editGame.patchValue(data);

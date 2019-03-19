@@ -14,3 +14,8 @@ export const getEditedGame = createSelector(
   getGames,
   (state: GamesState) => state.editedGame
 )
+
+export const getPlatforms = createSelector(
+  getGames,
+  (state: GamesState) => state.platforms
+)

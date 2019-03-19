@@ -1,12 +1,15 @@
 import { Action } from '@ngrx/store';
 import { Game, GameInput } from '../../../../models/game.models';
+import { Platform } from 'src/app/models/platform.models';
 
 export enum GamesActionTypes {
   SetGames = 'SET_GAMES',
   SetGame = 'SET_GAME',
   FetchGames = 'FETCH_GAMES',
   FetchGame = 'FETCH_GAME',
-  UpdateGame = 'UPDATE_GAME'
+  UpdateGame = 'UPDATE_GAME',
+  FetchPlatforms = 'FETCH_PLATFORMS',
+  SetPlatforms = 'SET_PLATFORMS'
 }
 
 export class FetchGames implements Action {
@@ -16,6 +19,15 @@ export class FetchGames implements Action {
 export class FetchGame implements Action {
   readonly type = GamesActionTypes.FetchGame;
   constructor(public payload: number) {}
+}
+
+export class FetchPlatforms implements Action {
+  readonly type = GamesActionTypes.FetchPlatforms;
+}
+
+export class SetPlatforms implements Action {
+  readonly type = GamesActionTypes.SetPlatforms;
+  constructor(public payload: Platform[]) {}
 }
 
 export class SetGames implements Action {
@@ -36,6 +48,8 @@ export class UpdateGame implements Action {
 export type GamesActions =
   | FetchGames
   | FetchGame
+  | FetchPlatforms
   | SetGames
   | SetGame
+  | SetPlatforms
   | UpdateGame;

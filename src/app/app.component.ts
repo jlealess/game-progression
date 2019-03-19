@@ -28,6 +28,7 @@ export class AppComponent {
     this.store.dispatch(new ProfileActions.FetchUserProfile());
     this.store.dispatch(new GamesActions.FetchGames());
     this.store.dispatch(new DashboardActions.FetchDashboard());
+    this.store.dispatch(new GamesActions.FetchPlatforms());
     this.user$ = this.store.select(getProfileState);
     this.games$ = this.store.select(getGamesState);
   }
