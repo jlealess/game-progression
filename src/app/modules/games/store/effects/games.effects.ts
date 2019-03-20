@@ -1,16 +1,14 @@
-import { Actions, Effect, ofType, OnIdentifyEffects } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, map, mergeMap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import * as GamesActions from '../actions/games.actions';
-import { Injectable, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 import { ProfileService } from 'src/app/modules/profile/services/profile.service';
 import { mapPlatformsToGames, mapUserToGames, calculateDate } from '../../functions';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { GameInput } from 'src/app/models/game.models';
 import { Platform } from 'src/app/models/platform.models';
-import { getGamesState } from '../selectors/games.selector';
 
 @Injectable()
 export class GamesEffects {
