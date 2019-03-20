@@ -43,7 +43,6 @@ export class EditGameComponent implements OnInit {
     this.platforms$ = this.store.select(getPlatforms);
     this.store.select(getEditedGame).subscribe(
       data => {
-        // this.editGame.patchValue(data);
         if (data) {
           const game = data[0];
           this.game = game;

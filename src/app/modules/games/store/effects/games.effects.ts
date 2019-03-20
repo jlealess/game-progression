@@ -5,7 +5,7 @@ import * as GamesActions from '../actions/games.actions';
 import { Injectable, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 import { ProfileService } from 'src/app/modules/profile/services/profile.service';
-import { mapPlatformsToGames, mapUserToGames } from '../../functions';
+import { mapPlatformsToGames, mapUserToGames, calculateDate } from '../../functions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { GameInput } from 'src/app/models/game.models';
@@ -83,6 +83,22 @@ export class GamesEffects {
       return this.gamesService
         .deleteGame(gameId)
         .pipe(map(() => new GamesActions.FetchGames()));
+    })
+  );
+
+  @Effect()
+  addGame = this.actions$.pipe(
+    ofType(GamesActions.GamesActionTypes.AddGame),
+    map((action: GamesActions.AddGame) => {
+      return {
+        ...action.payload,
+        dateCreated: calculateDate()
+      }
+    }),
+    switchMap(game => {
+      return this.gamesService
+        .addGame(game)
+        .pipe(map(() => new GamesActions.FetchGames()))
     })
   );
 

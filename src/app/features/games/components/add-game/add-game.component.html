@@ -1,18 +1,19 @@
+<p>
+  add-game works!
+</p>
 <div class="edit-game edit-game__form-element">
   <form 
     class="edit-game__form" 
-    *ngIf="(game$ | async) as game" 
-    [formGroup]="editGame" 
-    (ngSubmit)="onSubmit()">
+    [formGroup]="addGame" 
+    (ngSubmit)="onSubmit()"
+    >
     <div class="edit-game__header edit-game__inner">
       <h2 class="edit-game__heading">
-        Edit Game
+        Add Game
       </h2>
       <div class="edit-game__buttons">
-        <button class="btn btn--success btn--secondary" type="submit" [disabled]="!editGame.valid">Save</button>
-        <button class="btn btn--danger" (click)="onDelete($event)">Delete</button>
+        <button class="btn btn--success btn--secondary" type="submit" [disabled]="!addGame.valid">Save</button>
         <button class="btn btn--primary" (click)="onCancel($event)">Cancel</button>
-
       </div>
     </div>
     <div class="edit-game__body edit-game__inner">
@@ -32,8 +33,7 @@
       </div>
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="platformId">PlatformId</label>
-        <select class="edit-game__form__input" type="number" name="platformId"
-          formControlName="platformId">
+        <select class="edit-game__form__input" type="number" name="platformId" formControlName="platformId">
           <option [ngValue]="0" selected="selected">Choose a platform...</option>
           <option *ngFor="let platform of (platforms$ | async)" [ngValue]="platform.id">
             {{ platform.name }}
@@ -42,21 +42,12 @@
       </div>
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="numberOfHoursToComplete">Number of Hours to Complete</label>
-        <input class="edit-game__form__input" type="number" name="numberOfHoursToComplete" formControlName="numberOfHoursToComplete" />
+        <input class="edit-game__form__input" type="number" name="numberOfHoursToComplete"
+          formControlName="numberOfHoursToComplete" />
       </div>
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="priority">Priority</label>
-        <input class="edit-game__form__input" type="number" name="priority"
-          formControlName="priority" />
-      </div>
-      <div class="edit-game__form__element">
-        <label class="edit-game__form__label" for="numberOfHoursPlayed">Hours Played</label>
-        <input class="edit-game__form__input" type="number" name="numberOfHoursPlayed"
-          formControlName="numberOfHoursPlayed" />
-      </div>
-      <div class="edit-game__form__element">
-        <label class="edit-game__form__label" for="isComplete">Complete</label>
-        <input class="edit-game__form__input edit-game__form__input--checkbox" type="checkbox" name="isComplete" formControlName="isComplete" />
+        <input class="edit-game__form__input" type="number" name="priority" formControlName="priority" />
       </div>
     </div>
   </form>

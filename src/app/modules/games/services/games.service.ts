@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Game, GameInput } from '../../../models/game.models';
 import { Platform } from '../../../models/platform.models';
 
@@ -11,6 +11,12 @@ export class GamesService {
 
   gamesEndpoint = `${this.apiUrl}/games`;
   platformsEndpoint = `${this.apiUrl}/platforms`;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
 
   getGames() {
     return this.http.get<GameInput[]>(this.gamesEndpoint, {
@@ -26,8 +32,8 @@ export class GamesService {
     })
   }
 
-  updateGames(games: Game[]) {
-    return this.http.put<Game[]>(this.gamesEndpoint, games);
+  updateGames(games: GameInput[]) {
+    return this.http.put<GameInput[]>(this.gamesEndpoint, games);
   }
 
   updateGame(game: GameInput) {
@@ -36,6 +42,10 @@ export class GamesService {
 
   deleteGame(gameId: number) {
     return this.http.delete<number>(`${this.gamesEndpoint}/${gameId}`);
+  }
+
+  addGame(game: GameInput) {
+    return this.http.post<GameInput>("http://localhost:3000/games", game, this.httpOptions);
   }
 
   getPlatforms() {

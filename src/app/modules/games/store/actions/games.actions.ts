@@ -10,7 +10,8 @@ export enum GamesActionTypes {
   UpdateGame = 'UPDATE_GAME',
   DeleteGame = 'DELETE_GAME',
   FetchPlatforms = 'FETCH_PLATFORMS',
-  SetPlatforms = 'SET_PLATFORMS'
+  SetPlatforms = 'SET_PLATFORMS',
+  AddGame = 'ADD_GAME'
 }
 
 export class FetchGames implements Action {
@@ -51,6 +52,11 @@ export class DeleteGame implements Action {
   constructor(public payload: number) {}
 }
 
+export class AddGame implements Action {
+  readonly type = GamesActionTypes.AddGame;
+  constructor(public payload: any) {}
+}
+
 export type GamesActions =
   | FetchGames
   | FetchGame
@@ -59,4 +65,5 @@ export type GamesActions =
   | SetGame
   | SetPlatforms
   | UpdateGame
-  | DeleteGame;
+  | DeleteGame
+  | AddGame;

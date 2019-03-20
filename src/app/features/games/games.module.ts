@@ -6,9 +6,10 @@ import { GameComponent } from './components/game/game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { UiModule } from 'src/app/modules/ui/ui.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddGameComponent } from './components/add-game/add-game.component';
 
 @NgModule({
-  declarations: [ViewGamesComponent, GameComponent, EditGameComponent],
+  declarations: [ViewGamesComponent, GameComponent, EditGameComponent, AddGameComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
