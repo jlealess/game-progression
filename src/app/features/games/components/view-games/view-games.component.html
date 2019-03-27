@@ -1,10 +1,7 @@
 <div class="games">
-  <div class="games__header games__inner">
-    <h2 class="games__heading">
-      My Games
-    </h2>
+  <app-feature-header text="My Games">
     <button class="btn" routerLink="/games/add">Add Game</button>
-  </div>
+  </app-feature-header>
   <div class="games__body">
     <app-game 
       *ngFor="let game of (games$ | async)"

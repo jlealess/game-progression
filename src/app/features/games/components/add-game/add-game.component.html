@@ -7,15 +7,12 @@
     [formGroup]="addGame" 
     (ngSubmit)="onSubmit()"
     >
-    <div class="edit-game__header edit-game__inner">
-      <h2 class="edit-game__heading">
-        Add Game
-      </h2>
+    <app-feature-header text="Add Game">
       <div class="edit-game__buttons">
         <button class="btn btn--success btn--secondary" type="submit" [disabled]="!addGame.valid">Save</button>
         <button class="btn btn--primary" (click)="onCancel($event)">Cancel</button>
       </div>
-    </div>
+    </app-feature-header>
     <div class="edit-game__body edit-game__inner">
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="name">Name</label>

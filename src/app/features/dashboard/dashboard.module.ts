@@ -4,6 +4,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TestComponent } from './components/test.component';
 import { CommonModule } from '@angular/common';
 import { DashboardRootComponent } from './components/dashboard-root/dashboard-root.component';
+import { UiModule } from 'src/app/modules/ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,6 @@ import { DashboardRootComponent } from './components/dashboard-root/dashboard-ro
     TestComponent, 
     DashboardRootComponent
   ],
-  imports: [DashboardRoutingModule, CommonModule],
+  imports: [DashboardRoutingModule, CommonModule, UiModule],
 })
 export class DashboardModule {}

@@ -1,0 +1,12 @@
+@import '../../../../../styles/variables.scss';
+
+.feature-header {
+  align-items: center;
+  background-color: $blue;
+  color: $text-light;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  padding: 1em;
+}
