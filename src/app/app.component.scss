@@ -1,8 +1,8 @@
+@import '../styles/variables.scss';
+
 /* variables */
-$bg-color: #9dafbd;
-$primary-highlight: #1e2e3b;
-$text-dark: #1e2e3b;
-$text-light: #d6dbdf;
+$bg-color: $light-blue;
+$primary-highlight: $dark-blue;
 
 /* layout */
 html {

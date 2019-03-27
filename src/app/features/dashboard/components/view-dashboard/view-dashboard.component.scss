@@ -1,3 +1,5 @@
+@import '../../../../../styles/variables.scss';
+
 .dashboard {
   &__data {
     margin-bottom: 20px;
@@ -18,9 +20,9 @@
   }
 
   &__inner {
-    background-color: #30495f;
+    background-color: $blue;
     border-radius: 0.5rem;
-    color: #d6dbdf;
+    color: $text-light;
     padding: 1em;
 
     & + .dashboard__inner {
@@ -36,7 +38,7 @@
 
   &__subheading__detail,
   &__data__label__detail {
-    color: #9dafbd;
+    color: $light-blue;
     font-weight: normal;
   }
 
@@ -50,18 +52,18 @@
     }
 
     &--unfinished {
-      background-color: #c99898;
+      background-color: $light-red;
 
       &__inner {
-        background-color: #b43f3f;
+        background-color: $red;
       }
     }
 
     &--finished {
-      background-color: #a8ce87;
+      background-color: $light-green;
 
       &__inner {
-        background-color: #76b43f;
+        background-color: $green;
       }
     }
   }

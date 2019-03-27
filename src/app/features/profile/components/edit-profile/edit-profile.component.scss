@@ -1,9 +1,11 @@
+@import '../../../../../styles/variables.scss';
+
 .profile {
   .btn {
     background-color: #d6dbdf;
     border: none;
     border-radius: 0.25rem;
-    color: #30495f;
+    color: $blue;
     font-size: 1.4rem;
     margin-left: 10px;
     padding: 10px 80px;
@@ -11,7 +13,7 @@
     transition: all 0.5s ease-in-out;
 
     &--secondary {
-      background-color: #76b43f;
+      background-color: $green;
     }
 
     &:hover {
@@ -32,7 +34,7 @@
     }
 
     &__input {
-      background-color: #d6dbdf;
+      background-color: $text-light;
       border: none;
       font-size: 1em;
       padding: 5px;
@@ -52,9 +54,9 @@
   }
 
   &__inner {
-    background-color: #30495f;
+    background-color: $blue;
     border-radius: 0.5rem;
-    color: #d6dbdf;
+    color: $text-light;
     padding: 1em;
 
     & + .profile__inner {

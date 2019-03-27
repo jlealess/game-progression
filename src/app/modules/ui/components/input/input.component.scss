@@ -1,10 +1,12 @@
+@import '../../../../../styles/variables.scss';
+
 .form {
   &__element {
     margin-bottom: 1em;
   }
 
   &__input {
-    background-color: #d6dbdf;
+    background-color: $text-light;
     border: none;
     font-size: 1em;
     padding: 5px;

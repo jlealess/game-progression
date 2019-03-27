@@ -1,10 +1,12 @@
+@import '../../../../../styles/variables.scss';
+
 .game {
-  background-color: #30495f;
-  border-color: #b43f3f;
+  background-color: $blue;
+  border-color: $red;
   border-style: solid;
   border-width: 0;
   border-left-width: 15px;
-  color: #d6dbdf;
+  color: $text-light;
   height: 100%;
   padding: 1em;
   transition: all 0.2s ease-in-out;
@@ -15,15 +17,15 @@
   }
 
   &.completed {
-    border-color: #76b43f;
+    border-color: $green;
   }
 
   &.started {
-    border-color: #b48c3f;
+    border-color: $orange;
   }
 
   &.notStarted {
-    border-color: #b43f3f;
+    border-color: $red;
   }
 
   &__inner {
@@ -41,7 +43,7 @@
     font-weight: bold;
 
     &--light {
-      color: #9dafbd;
+      color: $light-blue;
       font-weight: normal;
     }
   }

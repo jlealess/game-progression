@@ -1,8 +1,10 @@
+@import '../../../../../styles/variables.scss';
+
 button {
-  background-color: #d6dbdf;
+  background-color: $text-light;
   border: none;
   border-radius: 0.25rem;
-  color: #30495f;
+  color: $blue;
   font-size: 1.4rem;
   margin-left: 10px;
   padding: 10px 80px;
@@ -10,12 +12,12 @@ button {
   transition: all 0.5s ease-in-out;
 
   &.primary {
-    background-color: #76b43f;
+    background-color: $green;
   }
 
   &.secondary {
-    background-color: #b43f3f;
-    color: #d6dbdf;
+    background-color: $red;
+    color: $text-light;
   }
 
   &:hover {
