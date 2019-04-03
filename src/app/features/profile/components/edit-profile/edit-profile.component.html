@@ -4,22 +4,18 @@
     *ngIf="(user$ | async) as user" 
     [formGroup]="editProfile"
     (ngSubmit)="onSubmit()">
-  <div class="profile__header profile__inner">
-    <h2 class="profile__heading">
-      Edit My Profile
-    </h2>
+  <app-feature-header text="Edit My Profile">
     <div class="profile__buttons">
-      <button 
+      <app-button 
         class="btn btn--secondary" 
         type="submit"
-        [disabled]="!editProfile.valid">Save</button>
-      <button 
+        [disabledValue]="!editProfile.valid">Save</app-button>
+      <app-button 
         class="btn btn--primary"
-        (click)="onCancel($event)">Cancel</button>
+        (click)="onCancel($event)">Cancel</app-button>
     </div>
-  </div>
-    <div 
-      class="profile__body profile__inner">
+  </app-feature-header>
+    <app-card>
       <div class="profile__form__element">
         <label 
           class="profile__form__label"
@@ -71,6 +67,6 @@
           />
           <!-- <p class="profile__form__error" *ngIf="!averageNumberOfHoursPerDay.valid && averageNumberOfHoursPerDay.touched">Please enter a valid number</p> -->
       </div>
-    </div>
+    </app-card>
     </form>
 </div>

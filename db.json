@@ -43,17 +43,6 @@
   },
   "games": [
     {
-      "id": 1,
-      "dateCreated": "2018-09-11T14:07:46+00:00",
-      "name": "Goo of War",
-      "image": "https://howlongtobeat.com/gameimages/38050_God_of_War.jpg",
-      "platformId": 1,
-      "priority": 5,
-      "numberOfHoursPlayed": 2,
-      "numberOfHoursToComplete": 19.5,
-      "isComplete": true
-    },
-    {
       "id": 2,
       "dateCreated": "2018-09-11T14:07:46+00:00",
       "name": "Octopath Traveler",

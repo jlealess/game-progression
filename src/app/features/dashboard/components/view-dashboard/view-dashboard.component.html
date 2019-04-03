@@ -1,6 +1,6 @@
 <div class="dashboard">
   <app-feature-header text="Your Dashboard"></app-feature-header>
-  <div class="dashboard__body dashboard__inner">
+  <app-card>
     <h3 class="dashboard__subheading">Time Remaining: <span
         class="dashboard__subheading__detail">{{ timeRemaining.toFixed(1) }} Days</span></h3>
     <div class="dashboard__data">
@@ -25,5 +25,5 @@
           [style.width]="calculateProgressPercentage(finishedGames)"></span>
       </div>
     </div>
-  </div>
+  </app-card>
 </div>

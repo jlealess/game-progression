@@ -1,12 +1,8 @@
 <div class="profile">
-  <div class="profile__header profile__inner">
-    <!-- <h2 class="profile__heading">
-      My Profile
-    </h2> -->
-    <app-feature-headline text="My Profile"></app-feature-headline>
-    <button class="btn" routerLink="/my-profile/edit">Edit</button>
-  </div>
-  <div class="profile__body profile__inner">
+  <app-feature-header text="My Profile">
+    <app-button routerLink="/my-profile/edit">Edit</app-button>
+  </app-feature-header>
+  <app-card>
     <dl class="profile__details" *ngIf="(user$ | async) as user">
       <dt class="profile__label">Name</dt>
       <dd class="profile__value">
@@ -21,5 +17,5 @@
         {{ user.averageNumberOfHoursPerDay }}
       </dd>
     </dl>
-  </div>
+  </app-card>
 </div>

@@ -7,6 +7,7 @@ import { InputComponent } from './components/input/input.component';
 import { FeatureHeadlineComponent } from './components/feature-headline/feature-headline.component';
 import { FeatureHeaderComponent } from './components/feature-header/feature-header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormFieldComponent } from './components/form-field/form-field.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InputComponent,
     FeatureHeadlineComponent,
     FeatureHeaderComponent,
+    FormFieldComponent,
   ],
   imports: [
     CommonModule,

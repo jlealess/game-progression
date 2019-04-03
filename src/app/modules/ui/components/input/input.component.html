@@ -10,9 +10,6 @@
     class="form__input" 
     [type]="(inputType || 'text')" 
     name="{{ inputName }}" 
-    formControlName="{{ formControlName }}"
+    formControlName="formControlName"
   />
-  <p 
-    class="form__error" 
-    *ngIf="!inputName.valid && inputName.touched">{{ errorMessage }}</p>
 </div>

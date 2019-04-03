@@ -6,12 +6,16 @@
     (ngSubmit)="onSubmit()">
     <app-feature-header text="Edit Game">
       <div class="edit-game__buttons">
-        <button class="btn btn--success btn--secondary" type="submit" [disabled]="!editGame.valid">Save</button>
-        <button class="btn btn--danger" (click)="onDelete($event)">Delete</button>
-        <button class="btn btn--primary" (click)="onCancel($event)">Cancel</button>
+        <app-button 
+          class="btn--success btn--secondary" 
+          type="submit" 
+          [disabledValue]="!editGame.valid"
+          >Save</app-button>
+        <app-button class="btn--danger" (click)="onDelete($event)">Delete</app-button>
+        <app-button class="btn--primary" (click)="onCancel($event)">Cancel</app-button>
       </div>
     </app-feature-header>
-    <div class="edit-game__body edit-game__inner">
+    <app-card>
       <div class="edit-game__form__element">
         <label class="edit-game__form__label" for="name">Name</label>
         <input class="edit-game__form__input" type="text" name="name" formControlName="name" />
@@ -54,6 +58,6 @@
         <label class="edit-game__form__label" for="isComplete">Complete</label>
         <input class="edit-game__form__input edit-game__form__input--checkbox" type="checkbox" name="isComplete" formControlName="isComplete" />
       </div>
-    </div>
+    </app-card>
   </form>
 </div>

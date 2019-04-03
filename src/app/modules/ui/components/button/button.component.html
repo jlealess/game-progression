@@ -1,1 +1,8 @@
-<button [class]="class">{{ buttonLabel }}</button>
+<button 
+  (click)="handleClick($event)" 
+  type="{{type || 'button'}}" 
+  class="btn {{class}}"
+  [disabled]="disabledValue"
+  >
+  <ng-content></ng-content>
+</button>
