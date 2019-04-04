@@ -1,0 +1,21 @@
+<div 
+  class="game card"
+  [ngClass]="{
+    completed: game.isComplete,
+    notStarted: (!game.isComplete && game.percentCompleted === 0),
+    started: (!game.isComplete && game.percentCompleted > 0)
+  }">
+  <a [routerLink]="['/games/edit', game.id]" class="game__link">
+    <div class="game__inner card__inner">
+      <div class="game__inner__text card__inner__text">
+        <h3 class="game__name" *ngIf="game">{{ game.name }}</h3>
+        <p class="game__stat game__stat--light">{{ game.platformName }}</p>
+        <p class="game__stat">Est. % Completed: <span class="game__stat--light">{{ (game.percentCompleted > 0 ? game.percentCompleted.toFixed(1) : 0) }}%</span></p>
+        <p class="game__stat">Completion Date: <span class="game__stat--light">{{ game.completionDate }}</span></p>
+      </div>
+      <div class="game__inner__thumbnail card__inner__thumbnail">
+        <img class="game__thumbnail" [src]="game.image" alt="{{ game.name }}">
+      </div>
+    </div>
+  </a>
+</div>

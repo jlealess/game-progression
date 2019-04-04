@@ -1,0 +1,48 @@
+<div class="edit-game edit-game__form-element">
+  <form 
+    class="edit-game__form" 
+    [formGroup]="addGame" 
+    (ngSubmit)="onSubmit()"
+    >
+    <app-feature-header text="Add Game">
+      <div class="edit-game__buttons">
+        <app-button class="btn--success btn--secondary" type="submit" [disabledValue]="!addGame.valid">Save</app-button>
+        <app-button class="btn--primary" (click)="onCancel($event)">Cancel</app-button>
+      </div>
+    </app-feature-header>
+    <app-card>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="name">Name</label>
+        <input class="edit-game__form__input" type="text" name="name" formControlName="name" />
+        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+        </div>      
+      -->
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="image">Image URL</label>
+        <input class="edit-game__form__input" type="text" name="image" formControlName="image" />
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="platformId">PlatformId</label>
+        <select class="edit-game__form__input" type="number" name="platformId" formControlName="platformId">
+          <option [ngValue]="0" selected="selected">Choose a platform...</option>
+          <option *ngFor="let platform of (platforms$ | async)" [ngValue]="platform.id">
+            {{ platform.name }}
+          </option>
+        </select>
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="numberOfHoursToComplete">Number of Hours to Complete</label>
+        <input class="edit-game__form__input" type="number" name="numberOfHoursToComplete"
+          formControlName="numberOfHoursToComplete" />
+      </div>
+      <div class="edit-game__form__element">
+        <label class="edit-game__form__label" for="priority">Priority</label>
+        <input class="edit-game__form__input" type="number" name="priority" formControlName="priority" />
+      </div>
+    </app-card>
+  </form>
+</div>

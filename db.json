@@ -35,24 +35,13 @@
   ],
   "profile": {
     "id": 1,
-    "firstName": "Katie",
-    "lastName": "Egervari",
-    "image": "profile-image.jpg",
     "languageId": 1,
-    "averageNumberOfHoursPerDay": 2
+    "firstName": "Gamer",
+    "lastName": "Person",
+    "image": "profile-image.jpg",
+    "averageNumberOfHoursPerDay": 8
   },
   "games": [
-    {
-      "id": 1,
-      "dateCreated": "2018-09-11T14:07:46+00:00",
-      "name": "God of War",
-      "image": "https://howlongtobeat.com/gameimages/38050_God_of_War.jpg",
-      "platformId": 1,
-      "priority": 8,
-      "numberOfHoursPlayed": 2,
-      "numberOfHoursToComplete": 19.5,
-      "isComplete": false
-    },
     {
       "id": 2,
       "dateCreated": "2018-09-11T14:07:46+00:00",
@@ -69,11 +58,11 @@
       "dateCreated": "2018-09-11T14:07:46+00:00",
       "name": "Dragon Quest XI: Echoes of an Elusive Age",
       "image": "https://howlongtobeat.com/gameimages/39508_Dragon_Quest_XI_In_Search_of_Departed_Time.jpg",
-      "platformId": 1,
+      "platformId": 3,
       "priority": 10,
       "numberOfHoursPlayed": 2,
       "numberOfHoursToComplete": 56.5,
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,
@@ -98,24 +87,13 @@
       "isComplete": false
     },
     {
-      "id": 6,
-      "dateCreated": "2018-09-11T14:07:46+00:00",
-      "name": "Marvel's Spider-Man",
-      "image": "https://howlongtobeat.com/gameimages/44852_Spider-Man_(2017).jpg",
-      "platformId": 1,
-      "priority": 9,
-      "numberOfHoursPlayed": 0.5,
-      "numberOfHoursToComplete": 15.5,
-      "isComplete": false
-    },
-    {
       "id": 7,
       "dateCreated": "2018-10-04T00:00:00+00:00",
       "name": "Mega Man 11",
       "image": "https://howlongtobeat.com/gameimages/51164_Mega_Man_11.png",
       "platformId": 2,
       "priority": 8,
-      "numberOfHoursPlayed": 0,
+      "numberOfHoursPlayed": 3,
       "numberOfHoursToComplete": 10,
       "isComplete": false
     },
@@ -140,6 +118,50 @@
       "numberOfHoursPlayed": 12.5,
       "numberOfHoursToComplete": 25,
       "isComplete": true
+    },
+    {
+      "name": "Animal Crossing",
+      "image": "https://animal-crossing.com//assets/icons/share_icon-tw.jpg",
+      "priority": 1,
+      "numberOfHoursToComplete": 4,
+      "platformId": 3,
+      "numberOfHoursPlayed": 0,
+      "isComplete": false,
+      "dateCreated": "2019-03-19T20:56:31.935Z",
+      "id": 10
+    },
+    {
+      "name": "Mario Kart Party",
+      "image": "https://target.scene7.com/is/image/Target/52161278?wid=488&hei=488&fmt=pjpeg",
+      "priority": 5,
+      "numberOfHoursToComplete": 99,
+      "platformId": 4,
+      "numberOfHoursPlayed": 0,
+      "isComplete": true,
+      "dateCreated": "2019-03-20T09:56:59-04:00",
+      "id": 11
+    },
+    {
+      "name": "Animal Crossing City Folk",
+      "image": "https://www.gamestop.com/common/images/lbox/230338b.jpg",
+      "priority": 3,
+      "numberOfHoursToComplete": 35,
+      "platformId": 3,
+      "numberOfHoursPlayed": 0,
+      "isComplete": false,
+      "dateCreated": "2019-03-20T10:03:41-04:00",
+      "id": 12
+    },
+    {
+      "name": "Animal Crossing Wild World",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/61SHEZJH0QL._SX342_.jpg",
+      "priority": 8,
+      "numberOfHoursToComplete": 60,
+      "platformId": 4,
+      "numberOfHoursPlayed": 0,
+      "isComplete": false,
+      "dateCreated": "2019-03-20T10:09:24-04:00",
+      "id": 13
     }
   ]
 }

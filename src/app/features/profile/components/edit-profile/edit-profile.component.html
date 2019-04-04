@@ -1,3 +1,72 @@
-<p>
-  edit-profile works!
-</p>
+<div class="profile__details__form-element" class="profile">
+  <form 
+    class="profile__form" 
+    *ngIf="(user$ | async) as user" 
+    [formGroup]="editProfile"
+    (ngSubmit)="onSubmit()">
+  <app-feature-header text="Edit My Profile">
+    <div class="profile__buttons">
+      <app-button 
+        class="btn btn--secondary" 
+        type="submit"
+        [disabledValue]="!editProfile.valid">Save</app-button>
+      <app-button 
+        class="btn btn--primary"
+        (click)="onCancel($event)">Cancel</app-button>
+    </div>
+  </app-feature-header>
+    <app-card>
+      <div class="profile__form__element">
+        <label 
+          class="profile__form__label"
+          for="firstName">First Name</label>
+        <input 
+          class="profile__form__input"
+          type="text"
+          name="firstName"
+          formControlName="firstName"
+           />
+          <!-- <p class="profile__form__error" *ngIf="!firstName.valid && firstName.touched">First name must only contain letters</p> -->
+      </div>
+      <div class="profile__form__element">
+        <label 
+          class="profile__form__label"
+          for="lastName">Last Name</label>
+        <input 
+          class="profile__form__input"
+          type="text"
+          name="lastName"
+          formControlName="lastName"
+         />
+          <!-- <p class="profile__form__error" *ngIf="!lastName.valid && lastName.touched">Last name must only contain letters</p> -->
+      </div>
+      <div class="profile__form__element">
+        <label 
+          class="profile__form__label"
+          for="image"
+          required
+          >Avatar Image Url</label>
+        <input 
+          class="profile__form__input" 
+          type="text" 
+          name="image" 
+          formControlName="image"
+          />
+          <!-- <p class="profile__form__error" *ngIf="!image.valid && image.touched">This field cannot be blank</p> -->
+      </div>
+      <div class="profile__form__element">
+        <label 
+          class="profile__form__label"
+          for="averageNumberOfHoursPerDay">Average Number of Hours to Game Per Day</label>
+        <input 
+          class="profile__form__input" 
+          type="text" 
+          name="averageNumberOfHoursPerDay"
+          formControlName="averageNumberOfHoursPerDay"
+
+          />
+          <!-- <p class="profile__form__error" *ngIf="!averageNumberOfHoursPerDay.valid && averageNumberOfHoursPerDay.touched">Please enter a valid number</p> -->
+      </div>
+    </app-card>
+    </form>
+</div>

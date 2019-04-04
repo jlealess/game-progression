@@ -1,0 +1,74 @@
+@import '../../../../../styles/variables.scss';
+
+.dashboard {
+  &__data {
+    margin-bottom: 20px;
+
+    &__label {
+      font-weight: bold;
+    }
+  }
+
+  &__details {
+    margin: 0;
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__inner {
+    background-color: $blue;
+    border-radius: 0.5rem;
+    color: $text-light;
+    padding: 1em;
+
+    & + .dashboard__inner {
+      margin-top: 1em;
+    }
+  }
+
+  &__subheading {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__subheading__detail,
+  &__data__label__detail {
+    color: $light-blue;
+    font-weight: normal;
+  }
+
+  .progress-bar {
+    height: 35px;
+    margin: 10px 0;
+
+    &__inner {
+      display: block;
+      height: 100%;
+    }
+
+    &--unfinished {
+      background-color: $light-red;
+
+      &__inner {
+        background-color: $red;
+      }
+    }
+
+    &--finished {
+      background-color: $light-green;
+
+      &__inner {
+        background-color: $green;
+      }
+    }
+  }
+
+  .dashboard__data + .dashboard__data {
+    margin-bottom: 0;
+  }
+}

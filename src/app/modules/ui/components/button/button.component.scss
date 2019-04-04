@@ -1,0 +1,31 @@
+@import '../../../../../styles/variables.scss';
+
+.btn {
+  background-color: $text-light;
+  border: none;
+  border-radius: 0.25rem;
+  color: $blue;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  padding: 10px 80px;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+
+    &--danger {
+      background-color: $red;
+      color: $text-light;
+    }
+
+    &--secondary {
+      background-color: $green;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    &:disabled {
+      background-color: grey;
+    }
+  }

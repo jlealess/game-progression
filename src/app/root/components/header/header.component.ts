@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { User } from '../../../models/user.models';
 
 @Component({
   selector: 'app-header',
@@ -7,16 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string;
-  @Input() user: {
-    id: number,
-    firstName: string,
-    lastName: string,
-    image: string,
-    languageId: number,
-    averageNumberOfHoursPerDay: number
-  }
+  @Input() user: User
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
   }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { getGamesState } from '../../../../modules/games/store/selectors/games.selector';
+import { Game } from '../../../../models/game.models';
 
 @Component({
   selector: 'app-view-games',
@@ -6,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-games.component.scss']
 })
 export class ViewGamesComponent implements OnInit {
-
-  constructor() { }
+  games$: Observable<Game[]>;
+  
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
+    this.games$ = this.store.select(getGamesState);
   }
-
 }

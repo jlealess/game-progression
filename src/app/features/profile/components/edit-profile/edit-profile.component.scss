@@ -1,0 +1,39 @@
+@import '../../../../../styles/variables.scss';
+
+.profile {
+
+  &__form {
+    margin: 0;
+
+    &__element {
+      margin-bottom: 1em;
+    }
+
+    &__input {
+      background-color: $text-light;
+      border: none;
+      font-size: 1em;
+      padding: 5px;
+      width: 350px;
+    }
+
+    &__label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__label,
+  &__value {
+    margin-left: 0;
+  }
+
+  &__label {
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  .profile__value + .profile__label {
+    margin-top: 1em;
+  } 
+}

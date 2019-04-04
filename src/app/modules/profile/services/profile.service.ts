@@ -11,12 +11,16 @@ export interface User {
 }
 
 @Injectable()
-export class ConfigService {
+export class ProfileService {
   constructor(private http: HttpClient) { }
 
   profileEndpoint = 'http://localhost:3000/profile';
 
   getUser() {
     return this.http.get<User>(this.profileEndpoint);
+  }
+
+  updateUser(user: User) {
+    return this.http.put<User>(this.profileEndpoint, user);
   }
 }
