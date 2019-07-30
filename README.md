@@ -1,6 +1,6 @@
 # GameProgression
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.  \It was created to complete the requirements of [Rangle's Game Progression app project](https://github.com/rangle/game-progression).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1. It was created to complete the requirements of [Rangle's Game Progression app project](https://github.com/rangle/game-progression).
 
 ## Development server
 
