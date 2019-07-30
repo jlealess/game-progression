@@ -10,7 +10,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Running the API
 
 Run `json-server --watch db.json` to start the [Video Game Progression API server](https://github.com/rangle/game-progression/blob/master/docs/api.md). Once the server is running, navigate to
-http://localhost:3000
+`http://localhost:3000`.
 
 ## Code scaffolding
 
